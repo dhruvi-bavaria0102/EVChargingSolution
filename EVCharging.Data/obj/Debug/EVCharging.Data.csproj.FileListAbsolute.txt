@@ -1,0 +1,35 @@
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll.config
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.pdb
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.dll
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.xml
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CoreCompileInputs.cache
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CopyComplete
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.dll
+C:\Users\sweta.mandani\Project_work\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.pdb
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll.config
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.pdb
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.dll
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.xml
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CoreCompileInputs.cache
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CopyComplete
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.dll
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.pdb
+C:\Users\sweta.mandani\Project_work\EVCharging project\EVCharging\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csprojAssemblyReference.cache
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll.config
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.pdb
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.dll
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.xml
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csprojAssemblyReference.cache
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CoreCompileInputs.cache
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CopyComplete
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.dll
+C:\Users\sweta.mandani\Desktop\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.pdb

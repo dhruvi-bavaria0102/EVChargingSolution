@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7110942-5807-433B-8A3D-EBF740E889EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EVCharging.Data</RootNamespace>
+    <AssemblyName>EVCharging.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessUnit.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Charger.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Connector.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Connector_Type.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EVCharging.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EVCharging.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EVCharging.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EVCharging.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EVCharging.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneNumber.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RFIDTag.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_BusinessUnits_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Chargers_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_ConnectorTypes_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Connector_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Customer_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Location_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_PhoneNumber_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_RFIDTag_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Role_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Vehicle_Result.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staticpage.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="EVCharging.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EVCharging.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EVCharging.edmx.diagram">
+      <DependentUpon>EVCharging.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EVCharging.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EVCharging.edmx</DependentUpon>
+      <LastGenOutput>EVCharging.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EVCharging.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EVCharging.edmx</DependentUpon>
+      <LastGenOutput>EVCharging.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EVModelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BusinessUnits">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusinessUnitName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BusinessUnitCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Chargers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="ChargerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Availability" Type="nvarchar" MaxLength="300" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Connector Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConnectorName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ConnectorStandard" Type="nvarchar" MaxLength="100" />
+    <Property Name="PowerType" Type="nvarchar" MaxLength="256" />
+    <Property Name="ConnectorFormate" Type="nvarchar" MaxLength="256" />
+    <Property Name="ConnectorCategory" Type="nvarchar" MaxLength="256" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Connectors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChargerId" Type="int" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="ConnectorTypeId" Type="int" />
+    <Property Name="ConnectorStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="SMSCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="ConnectorUnId" Type="nvarchar" MaxLength="100" />
+    <Property Name="Tariff" Type="nvarchar" MaxLength="200" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="SupportMail" Type="nvarchar" MaxLength="250" />
+    <Property Name="MarketingMail" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BusinessUnitID" Type="int" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="streetAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="City" Type="nvarchar" MaxLength="80" />
+    <Property Name="Country" Type="nvarchar" MaxLength="80" />
+    <Property Name="InvoiceStreetAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="InvoicePostalCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="InvoiceCity" Type="nvarchar" MaxLength="80" />
+    <Property Name="InvoiceCountry" Type="nvarchar" MaxLength="80" />
+    <Property Name="Site" Type="nvarchar(max)" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="resetPasswordCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsEmailverify" Type="bit" />
+    <Property Name="ActivationCode" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="Latitude" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="Longitude" Type="numeric" Precision="18" Scale="6" />
+    <Property Name="BusinessUnitName" Type="nvarchar" MaxLength="60" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="PhoneNumbers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="RFIDTags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uid" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Hex" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TagType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RFIDTagNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ServiceDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="Accepted" Type="bit" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Staticpages">
+    <Key>
+      <PropertyRef Name="StaticPageId" />
+    </Key>
+    <Property Name="StaticPageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StaticPageName" Type="nvarchar" MaxLength="20" />
+    <Property Name="StaticPageContent" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Vehicles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LicenseId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="DeleteDate" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <Association Name="FK__Chargers__Locati__35BCFE0A">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="Chargers" Type="Self.Chargers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Chargers">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connector__Charg__36B12243">
+    <End Role="Chargers" Type="Self.Chargers" Multiplicity="0..1" />
+    <End Role="Connectors" Type="Self.Connectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chargers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Connectors">
+        <PropertyRef Name="ChargerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connector__Conne__37A5467C">
+    <End Role="Connector Types" Type="Self.Connector Types" Multiplicity="0..1" />
+    <End Role="Connectors" Type="Self.Connectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connector Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Connectors">
+        <PropertyRef Name="ConnectorTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connector__Locat__38996AB5">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+    <End Role="Connectors" Type="Self.Connectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Connectors">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customers__Busin__398D8EEE">
+    <End Role="BusinessUnits" Type="Self.BusinessUnits" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessUnits">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="BusinessUnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhoneNumb__Custo__3B75D760">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="PhoneNumbers" Type="Self.PhoneNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhoneNumbers">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicles__Custom__3C69FB99">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Delete_BusinessUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BusinessUnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessUnitCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrencyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Charger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Availability" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Connector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ChargerId" Type="int" Mode="In" />
+    <Parameter Name="LocationId" Type="int" Mode="In" />
+    <Parameter Name="ConnectorTypeId" Type="int" Mode="In" />
+    <Parameter Name="ConnectorStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="SMSCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorUnId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Tariff" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Connector_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Delete_Connector Type">
+    <Parameter Name="ConnectorName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorStandard" Type="nvarchar" Mode="In" />
+    <Parameter Name="PowerType" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorFormate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorCategory" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessUnitID" Type="int" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="streetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Country" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceStreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoicePostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceCity" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceCountr" Type="nvarchar" Mode="In" />
+    <Parameter Name="Site" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Telephone" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Location" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Latitude" Type="float" Mode="In" />
+    <Parameter Name="Longitude" Type="float" Mode="In" />
+    <Parameter Name="BusinessUnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrencyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_PhoneNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TelephoneNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_RFIDTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Uid" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hex" Type="nvarchar" Mode="In" />
+    <Parameter Name="TagType" Type="nvarchar" Mode="In" />
+    <Parameter Name="RFIDTagNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Delete_Vehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Model" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LicenseId" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_BusinessUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BusinessUnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessUnitCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrencyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Charger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Availability" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Connector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ChargerId" Type="int" Mode="In" />
+    <Parameter Name="LocationId" Type="int" Mode="In" />
+    <Parameter Name="ConnectorTypeId" Type="int" Mode="In" />
+    <Parameter Name="ConnectorStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="SMSCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorUnId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Tariff" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Connector_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Insert_Connector Type">
+    <Parameter Name="ConnectorName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorStandard" Type="nvarchar" Mode="In" />
+    <Parameter Name="PowerType" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorFormate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorCategory" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessUnitID" Type="int" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="streetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Country" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceStreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoicePostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceCity" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceCountr" Type="nvarchar" Mode="In" />
+    <Parameter Name="Site" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Telephone" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Location" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Latitude" Type="float" Mode="In" />
+    <Parameter Name="Longitude" Type="float" Mode="In" />
+    <Parameter Name="BusinessUnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrencyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_PhoneNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TelephoneNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_RFIDTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Uid" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hex" Type="nvarchar" Mode="In" />
+    <Parameter Name="TagType" Type="nvarchar" Mode="In" />
+    <Parameter Name="RFIDTagNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Insert_Vehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Model" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LicenseId" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Select_BusinessUnits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_Chargers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_Connector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_ConnectorTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_Location" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_PhoneNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_RFIDTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Select_Vehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Update_BusinessUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BusinessUnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessUnitCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrencyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Charger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Availability" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Connector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ChargerId" Type="int" Mode="In" />
+    <Parameter Name="LocationId" Type="int" Mode="In" />
+    <Parameter Name="ConnectorTypeId" Type="int" Mode="In" />
+    <Parameter Name="ConnectorStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="SMSCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorUnId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Tariff" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Connector_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Update_Connector Type">
+    <Parameter Name="ConnectorName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorStandard" Type="nvarchar" Mode="In" />
+    <Parameter Name="PowerType" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorFormate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConnectorCategory" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BusinessUnitID" Type="int" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="streetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Country" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceStreetAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoicePostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceCity" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceCountr" Type="nvarchar" Mode="In" />
+    <Parameter Name="Site" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Telephone" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Location" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="City" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Latitude" Type="float" Mode="In" />
+    <Parameter Name="Longitude" Type="float" Mode="In" />
+    <Parameter Name="BusinessUnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrencyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_PhoneNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TelephoneNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_RFIDTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Uid" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hex" Type="nvarchar" Mode="In" />
+    <Parameter Name="TagType" Type="nvarchar" Mode="In" />
+    <Parameter Name="RFIDTagNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Update_Vehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="Model" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LicenseId" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InsertDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="DeleteDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="EVModelModelStoreContainer">
+    <EntitySet Name="BusinessUnits" EntityType="Self.BusinessUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chargers" EntityType="Self.Chargers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Connector Types" EntityType="Self.Connector Types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Connectors" EntityType="Self.Connectors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhoneNumbers" EntityType="Self.PhoneNumbers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RFIDTags" EntityType="Self.RFIDTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staticpages" EntityType="Self.Staticpages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Chargers__Locati__35BCFE0A" Association="Self.FK__Chargers__Locati__35BCFE0A">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Chargers" EntitySet="Chargers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connector__Charg__36B12243" Association="Self.FK__Connector__Charg__36B12243">
+      <End Role="Chargers" EntitySet="Chargers" />
+      <End Role="Connectors" EntitySet="Connectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connector__Conne__37A5467C" Association="Self.FK__Connector__Conne__37A5467C">
+      <End Role="Connector Types" EntitySet="Connector Types" />
+      <End Role="Connectors" EntitySet="Connectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connector__Locat__38996AB5" Association="Self.FK__Connector__Locat__38996AB5">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Connectors" EntitySet="Connectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customers__Busin__398D8EEE" Association="Self.FK__Customers__Busin__398D8EEE">
+      <End Role="BusinessUnits" EntitySet="BusinessUnits" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhoneNumb__Custo__3B75D760" Association="Self.FK__PhoneNumb__Custo__3B75D760">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="PhoneNumbers" EntitySet="PhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicles__Custom__3C69FB99" Association="Self.FK__Vehicles__Custom__3C69FB99">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

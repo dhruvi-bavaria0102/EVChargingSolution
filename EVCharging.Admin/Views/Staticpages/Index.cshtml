@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EVCharging.Data.Staticpage>
+
+@{
+    ViewBag.Title = "Static Pages";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div>
+
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StaticPageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaticPageContent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaticPageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaticPageContent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StaticPageId }) |
+             
+            @Html.ActionLink("Delete", "Delete", new { id = item.StaticPageId })
+        </td>
+    </tr>
+}
+
+</table>

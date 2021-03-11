@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EVModelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BusinessUnit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessUnitName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BusinessUnitCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK__Customers__Busin__398D8EEE" FromRole="BusinessUnits" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Charger">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="ChargerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Availability" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Location" Relationship="Self.FK__Chargers__Locati__35BCFE0A" FromRole="Chargers" ToRole="Locations" />
+    <NavigationProperty Name="Connectors" Relationship="Self.FK__Connector__Charg__36B12243" FromRole="Chargers" ToRole="Connectors" />
+  </EntityType>
+  <EntityType Name="Connector_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConnectorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ConnectorStandard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PowerType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ConnectorFormate" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ConnectorCategory" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <NavigationProperty Name="Connectors" Relationship="Self.FK__Connector__Conne__37A5467C" FromRole="Connector_Types" ToRole="Connectors" />
+  </EntityType>
+  <EntityType Name="Connector">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChargerId" Type="Int32" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="ConnectorTypeId" Type="Int32" />
+    <Property Name="ConnectorStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SMSCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ConnectorUnId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Tariff" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <NavigationProperty Name="Charger" Relationship="Self.FK__Connector__Charg__36B12243" FromRole="Connectors" ToRole="Chargers" />
+    <NavigationProperty Name="Connector_Types" Relationship="Self.FK__Connector__Conne__37A5467C" FromRole="Connectors" ToRole="Connector_Types" />
+    <NavigationProperty Name="Location" Relationship="Self.FK__Connector__Locat__38996AB5" FromRole="Connectors" ToRole="Locations" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SupportMail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MarketingMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BusinessUnitID" Type="Int32" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="streetAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceStreetAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InvoicePostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceCity" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceCountry" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Site" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="resetPasswordCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmailverify" Type="Boolean" />
+    <Property Name="ActivationCode" Type="Guid" />
+    <NavigationProperty Name="BusinessUnit" Relationship="Self.FK__Customers__Busin__398D8EEE" FromRole="Customers" ToRole="BusinessUnits" />
+    <NavigationProperty Name="PhoneNumbers" Relationship="Self.FK__PhoneNumb__Custo__3B75D760" FromRole="Customers" ToRole="PhoneNumbers" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicles__Custom__3C69FB99" FromRole="Customers" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="BusinessUnitName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Chargers" Relationship="Self.FK__Chargers__Locati__35BCFE0A" FromRole="Locations" ToRole="Chargers" />
+    <NavigationProperty Name="Connectors" Relationship="Self.FK__Connector__Locat__38996AB5" FromRole="Locations" ToRole="Connectors" />
+  </EntityType>
+  <EntityType Name="PhoneNumber">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__PhoneNumb__Custo__3B75D760" FromRole="PhoneNumbers" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="RFIDTag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hex" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TagType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RFIDTagNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="isDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceID" />
+    </Key>
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Accepted" Type="Boolean" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="isDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Staticpage">
+    <Key>
+      <PropertyRef Name="StaticPageId" />
+    </Key>
+    <Property Name="StaticPageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaticPageName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="StaticPageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LicenseId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Vehicles__Custom__3C69FB99" FromRole="Vehicles" ToRole="Customers" />
+  </EntityType>
+  <Association Name="FK__Customers__Busin__398D8EEE">
+    <End Role="BusinessUnits" Type="Self.BusinessUnit" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusinessUnits">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="BusinessUnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Chargers__Locati__35BCFE0A">
+    <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Chargers" Type="Self.Charger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Chargers">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connector__Charg__36B12243">
+    <End Role="Chargers" Type="Self.Charger" Multiplicity="0..1" />
+    <End Role="Connectors" Type="Self.Connector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chargers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Connectors">
+        <PropertyRef Name="ChargerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connector__Conne__37A5467C">
+    <End Role="Connector_Types" Type="Self.Connector_Type" Multiplicity="0..1" />
+    <End Role="Connectors" Type="Self.Connector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connector_Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Connectors">
+        <PropertyRef Name="ConnectorTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Connector__Locat__38996AB5">
+    <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Connectors" Type="Self.Connector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Connectors">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhoneNumb__Custo__3B75D760">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="PhoneNumbers" Type="Self.PhoneNumber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhoneNumbers">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicles__Custom__3C69FB99">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EVModelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BusinessUnits" EntityType="Self.BusinessUnit" />
+    <EntitySet Name="Chargers" EntityType="Self.Charger" />
+    <EntitySet Name="Connector_Types" EntityType="Self.Connector_Type" />
+    <EntitySet Name="Connectors" EntityType="Self.Connector" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="PhoneNumbers" EntityType="Self.PhoneNumber" />
+    <EntitySet Name="RFIDTags" EntityType="Self.RFIDTag" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="Staticpages" EntityType="Self.Staticpage" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <AssociationSet Name="FK__Customers__Busin__398D8EEE" Association="Self.FK__Customers__Busin__398D8EEE">
+      <End Role="BusinessUnits" EntitySet="BusinessUnits" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Chargers__Locati__35BCFE0A" Association="Self.FK__Chargers__Locati__35BCFE0A">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Chargers" EntitySet="Chargers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connector__Charg__36B12243" Association="Self.FK__Connector__Charg__36B12243">
+      <End Role="Chargers" EntitySet="Chargers" />
+      <End Role="Connectors" EntitySet="Connectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connector__Conne__37A5467C" Association="Self.FK__Connector__Conne__37A5467C">
+      <End Role="Connector_Types" EntitySet="Connector_Types" />
+      <End Role="Connectors" EntitySet="Connectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Connector__Locat__38996AB5" Association="Self.FK__Connector__Locat__38996AB5">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Connectors" EntitySet="Connectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhoneNumb__Custo__3B75D760" Association="Self.FK__PhoneNumb__Custo__3B75D760">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="PhoneNumbers" EntitySet="PhoneNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicles__Custom__3C69FB99" Association="Self.FK__Vehicles__Custom__3C69FB99">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <FunctionImport Name="Delete_BusinessUnit">
+      <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
+      <Parameter Name="BusinessUnitCode" Mode="In" Type="String" />
+      <Parameter Name="CurrencyCode" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Charger">
+      <Parameter Name="LocationID" Mode="In" Type="Int32" />
+      <Parameter Name="Availability" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Connector">
+      <Parameter Name="ChargerId" Mode="In" Type="Int32" />
+      <Parameter Name="LocationId" Mode="In" Type="Int32" />
+      <Parameter Name="ConnectorTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="ConnectorStatus" Mode="In" Type="String" />
+      <Parameter Name="SMSCode" Mode="In" Type="String" />
+      <Parameter Name="ConnectorUnId" Mode="In" Type="String" />
+      <Parameter Name="Tariff" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Connector_Type">
+      <Parameter Name="ConnectorName" Mode="In" Type="String" />
+      <Parameter Name="ConnectorStandard" Mode="In" Type="String" />
+      <Parameter Name="PowerType" Mode="In" Type="String" />
+      <Parameter Name="ConnectorFormate" Mode="In" Type="String" />
+      <Parameter Name="ConnectorCategory" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Customer">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="BusinessUnitID" Mode="In" Type="Int32" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="streetAddress" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="InvoiceStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="InvoicePostalCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceCity" Mode="In" Type="String" />
+      <Parameter Name="InvoiceCountr" Mode="In" Type="String" />
+      <Parameter Name="Site" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Location">
+      <Parameter Name="LocationName" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Latitude" Mode="In" Type="Double" />
+      <Parameter Name="Longitude" Mode="In" Type="Double" />
+      <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
+      <Parameter Name="CurrencyCode" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_PhoneNumber">
+      <Parameter Name="TelephoneNumber" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_RFIDTag">
+      <Parameter Name="Uid" Mode="In" Type="String" />
+      <Parameter Name="Hex" Mode="In" Type="String" />
+      <Parameter Name="TagType" Mode="In" Type="String" />
+      <Parameter Name="RFIDTagNumber" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Role">
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Vehicle">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Model" Mode="In" Type="String" />
+      <Parameter Name="LicenseId" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_BusinessUnit">
+      <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
+      <Parameter Name="BusinessUnitCode" Mode="In" Type="String" />
+      <Parameter Name="CurrencyCode" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Charger">
+      <Parameter Name="LocationID" Mode="In" Type="Int32" />
+      <Parameter Name="Availability" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Connector">
+      <Parameter Name="ChargerId" Mode="In" Type="Int32" />
+      <Parameter Name="LocationId" Mode="In" Type="Int32" />
+      <Parameter Name="ConnectorTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="ConnectorStatus" Mode="In" Type="String" />
+      <Parameter Name="SMSCode" Mode="In" Type="String" />
+      <Parameter Name="ConnectorUnId" Mode="In" Type="String" />
+      <Parameter Name="Tariff" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Connector_Type">
+      <Parameter Name="ConnectorName" Mode="In" Type="String" />
+      <Parameter Name="ConnectorStandard" Mode="In" Type="String" />
+      <Parameter Name="PowerType" Mode="In" Type="String" />
+      <Parameter Name="ConnectorFormate" Mode="In" Type="String" />
+      <Parameter Name="ConnectorCategory" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Customer">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="BusinessUnitID" Mode="In" Type="Int32" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="streetAddress" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="InvoiceStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="InvoicePostalCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceCity" Mode="In" Type="String" />
+      <Parameter Name="InvoiceCountr" Mode="In" Type="String" />
+      <Parameter Name="Site" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Location">
+      <Parameter Name="LocationName" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Latitude" Mode="In" Type="Double" />
+      <Parameter Name="Longitude" Mode="In" Type="Double" />
+      <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
+      <Parameter Name="CurrencyCode" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_PhoneNumber">
+      <Parameter Name="TelephoneNumber" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_RFIDTag">
+      <Parameter Name="Uid" Mode="In" Type="String" />
+      <Parameter Name="Hex" Mode="In" Type="String" />
+      <Parameter Name="TagType" Mode="In" Type="String" />
+      <Parameter Name="RFIDTagNumber" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Role">
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Vehicle">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Model" Mode="In" Type="String" />
+      <Parameter Name="LicenseId" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Select_BusinessUnits" ReturnType="Collection(EVModelModel.Select_BusinessUnits_Result)" />
+    <FunctionImport Name="Select_Chargers" ReturnType="Collection(EVModelModel.Select_Chargers_Result)" />
+    <FunctionImport Name="Select_Connector" ReturnType="Collection(EVModelModel.Select_Connector_Result)" />
+    <FunctionImport Name="Select_ConnectorTypes" ReturnType="Collection(EVModelModel.Select_ConnectorTypes_Result)" />
+    <FunctionImport Name="Select_Customer" ReturnType="Collection(EVModelModel.Select_Customer_Result)" />
+    <FunctionImport Name="Select_Location" ReturnType="Collection(EVModelModel.Select_Location_Result)" />
+    <FunctionImport Name="Select_PhoneNumber" ReturnType="Collection(EVModelModel.Select_PhoneNumber_Result)" />
+    <FunctionImport Name="Select_RFIDTag" ReturnType="Collection(EVModelModel.Select_RFIDTag_Result)" />
+    <FunctionImport Name="Select_Role" ReturnType="Collection(EVModelModel.Select_Role_Result)" />
+    <FunctionImport Name="Select_Vehicle" ReturnType="Collection(EVModelModel.Select_Vehicle_Result)" />
+    <FunctionImport Name="Update_BusinessUnit">
+      <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
+      <Parameter Name="BusinessUnitCode" Mode="In" Type="String" />
+      <Parameter Name="CurrencyCode" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Charger">
+      <Parameter Name="LocationID" Mode="In" Type="Int32" />
+      <Parameter Name="Availability" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Connector">
+      <Parameter Name="ChargerId" Mode="In" Type="Int32" />
+      <Parameter Name="LocationId" Mode="In" Type="Int32" />
+      <Parameter Name="ConnectorTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="ConnectorStatus" Mode="In" Type="String" />
+      <Parameter Name="SMSCode" Mode="In" Type="String" />
+      <Parameter Name="ConnectorUnId" Mode="In" Type="String" />
+      <Parameter Name="Tariff" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Connector_Type">
+      <Parameter Name="ConnectorName" Mode="In" Type="String" />
+      <Parameter Name="ConnectorStandard" Mode="In" Type="String" />
+      <Parameter Name="PowerType" Mode="In" Type="String" />
+      <Parameter Name="ConnectorFormate" Mode="In" Type="String" />
+      <Parameter Name="ConnectorCategory" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Customer">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="BusinessUnitID" Mode="In" Type="Int32" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="streetAddress" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="InvoiceStreetAddress" Mode="In" Type="String" />
+      <Parameter Name="InvoicePostalCode" Mode="In" Type="String" />
+      <Parameter Name="InvoiceCity" Mode="In" Type="String" />
+      <Parameter Name="InvoiceCountr" Mode="In" Type="String" />
+      <Parameter Name="Site" Mode="In" Type="String" />
+      <Parameter Name="Telephone" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Location">
+      <Parameter Name="LocationName" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Latitude" Mode="In" Type="Double" />
+      <Parameter Name="Longitude" Mode="In" Type="Double" />
+      <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
+      <Parameter Name="CurrencyCode" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_PhoneNumber">
+      <Parameter Name="TelephoneNumber" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_RFIDTag">
+      <Parameter Name="Uid" Mode="In" Type="String" />
+      <Parameter Name="Hex" Mode="In" Type="String" />
+      <Parameter Name="TagType" Mode="In" Type="String" />
+      <Parameter Name="RFIDTagNumber" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Role">
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Vehicle">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="Model" Mode="In" Type="String" />
+      <Parameter Name="LicenseId" Mode="In" Type="String" />
+      <Parameter Name="InsertDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Select_BusinessUnits_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="BusinessUnitName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="BusinessUnitCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="CurrencyCode" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_Chargers_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="LocationID" Nullable="true" />
+    <Property Type="String" Name="ChargerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Availability" Nullable="true" MaxLength="300" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_Connector_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ChargerId" Nullable="true" />
+    <Property Type="Int32" Name="LocationId" Nullable="true" />
+    <Property Type="Int32" Name="ConnectorTypeId" Nullable="true" />
+    <Property Type="String" Name="ConnectorStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SMSCode" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ConnectorUnId" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Tariff" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_ConnectorTypes_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="ConnectorName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ConnectorStandard" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PowerType" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="ConnectorFormate" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="ConnectorCategory" Nullable="true" MaxLength="256" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_Customer_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="BusinessUnitID" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="streetAddress" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="InvoiceStreetAddress" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="InvoicePostalCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="InvoiceCity" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="InvoiceCountry" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Site" Nullable="true" />
+    <Property Type="String" Name="Telephone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RoleId" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="resetPasswordCode" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="IsEmailverify" Nullable="true" />
+    <Property Type="Guid" Name="ActivationCode" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_Location_Result">
+    <Property Type="String" Name="LocationName" Nullable="true" />
+    <Property Type="Decimal" Name="Latitude" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="Decimal" Name="Longitude" Nullable="true" Precision="18" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="Select_PhoneNumber_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TelephoneNumber" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CustomerId" Nullable="true" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_RFIDTag_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Uid" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Hex" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="TagType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="RFIDTagNumber" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_Role_Result">
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Select_Vehicle_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CustomerId" Nullable="true" />
+    <Property Type="String" Name="Model" Nullable="false" />
+    <Property Type="String" Name="LicenseId" Nullable="false" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="isDeleted" Nullable="true" />
+  </ComplexType>
+</Schema>

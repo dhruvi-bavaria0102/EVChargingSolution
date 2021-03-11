@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EVCharging.Data.Staticpage>
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>About</h2>
+
+<div style="background-color:white">
+
+    @foreach (var item in Model)
+    {
+        string nmb = "About";
+
+        if (item.StaticPageName == nmb)
+        {
+
+            <h4>@Html.Raw(item.StaticPageContent) </h4>
+
+        }
+
+    }
+
+</div>

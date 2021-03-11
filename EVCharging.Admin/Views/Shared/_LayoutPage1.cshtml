@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            @*<a href="index3.html" class="brand-link">*@
+            <img src="~/adminlte/img/AdminLTELogo.png" height=50 alt="Admin" class="brand-image img-circle elevation-3" style="opacity: .8">&nbsp;&nbsp;&nbsp;
+            <span class="brand-text font-weight-light" style="color:white; font-weight:bold; font-size:medium;"> Admin Rights</span>
+            @*</a>*@
+            <br /> <br />
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Admin Pages
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Locations")" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manage Locations</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Chargers")" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manage Chargers</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Connectors")" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manage Connectors</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Customers")" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manage Customer</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Services")" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Manage Services</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Staticpages")" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add Static Pages</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        @* Content Wrapper. Contains page content*@ 
+        <div class="content-wrapper">
+            @* Content Header (Page header)*@ 
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">@ViewBag.Title</h1>
+                        </div>   @*/.col*@
+                        <div class="col-sm-6">
+
+                        </div> @*/.col*@
+                    </div> @*/.row*@ 
+                </div> @*/.container-fluid*@ 
+            </div>
+             @*/.content-header*@ 
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+
+                    @RenderBody()
+
+
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+  
+        
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/adminlte/js")
+    @RenderSection("scripts", required: false)
+ </body>
+</html>

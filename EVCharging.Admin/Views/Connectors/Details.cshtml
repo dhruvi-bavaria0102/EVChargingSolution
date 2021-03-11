@@ -1,0 +1,76 @@
+﻿@model EVCharging.Data.Connector
+
+@{
+    ViewBag.Title = "Details of selected connector";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Connector_Types.ConnectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connector_Types.ConnectorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Charger.ChargerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Charger.ChargerName)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConnectorStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConnectorStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMSCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMSCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConnectorUnId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConnectorUnId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tariff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tariff)
+        </dd>
+
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

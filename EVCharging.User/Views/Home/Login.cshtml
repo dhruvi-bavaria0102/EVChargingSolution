@@ -1,0 +1,74 @@
+﻿@model EVCharging.Data.Customer
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Raw(TempData["Login"])
+
+@Html.Raw(ViewBag.ErrorMeassage)
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="login-page">
+            <div class="form " style="max-width:350px">
+                <div class="login">
+                    <div class="login-header">
+                        <h3 style="text-align:center">LOGIN</h3>
+                        <p style="text-align:center">Please enter your credentials to login.</p>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <div class=" col-md-12">
+                        <input type="submit" value="Sign in" class="registerbtn" />
+                        <div style="margin-top:20px;">
+                            Don't have an account?@Html.ActionLink("Sign Up", "Register", "Home")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,85 @@
+﻿@model EVCharging.Data.Connector
+
+@{
+    ViewBag.Title = "Delete connector";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Connector_Types.ConnectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connector_Types.ConnectorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Charger.ChargerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Charger.ChargerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConnectorStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConnectorStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMSCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMSCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConnectorUnId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConnectorUnId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tariff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tariff)
+        </dd>
+
+
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

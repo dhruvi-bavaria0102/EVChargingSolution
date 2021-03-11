@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EVModelModelStoreContainer" CdmEntityContainer="EVModelEntities">
+    <EntitySetMapping Name="BusinessUnits">
+      <EntityTypeMapping TypeName="EVModelModel.BusinessUnit">
+        <MappingFragment StoreEntitySet="BusinessUnits">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BusinessUnitName" ColumnName="BusinessUnitName" />
+          <ScalarProperty Name="BusinessUnitCode" ColumnName="BusinessUnitCode" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chargers">
+      <EntityTypeMapping TypeName="EVModelModel.Charger">
+        <MappingFragment StoreEntitySet="Chargers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ChargerName" ColumnName="ChargerName" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connector_Types">
+      <EntityTypeMapping TypeName="EVModelModel.Connector_Type">
+        <MappingFragment StoreEntitySet="Connector Types">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConnectorName" ColumnName="ConnectorName" />
+          <ScalarProperty Name="ConnectorStandard" ColumnName="ConnectorStandard" />
+          <ScalarProperty Name="PowerType" ColumnName="PowerType" />
+          <ScalarProperty Name="ConnectorFormate" ColumnName="ConnectorFormate" />
+          <ScalarProperty Name="ConnectorCategory" ColumnName="ConnectorCategory" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connectors">
+      <EntityTypeMapping TypeName="EVModelModel.Connector">
+        <MappingFragment StoreEntitySet="Connectors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChargerId" ColumnName="ChargerId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="ConnectorTypeId" ColumnName="ConnectorTypeId" />
+          <ScalarProperty Name="ConnectorStatus" ColumnName="ConnectorStatus" />
+          <ScalarProperty Name="SMSCode" ColumnName="SMSCode" />
+          <ScalarProperty Name="ConnectorUnId" ColumnName="ConnectorUnId" />
+          <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="EVModelModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="SupportMail" ColumnName="SupportMail" />
+          <ScalarProperty Name="MarketingMail" ColumnName="MarketingMail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="EVModelModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="streetAddress" ColumnName="streetAddress" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="InvoiceStreetAddress" ColumnName="InvoiceStreetAddress" />
+          <ScalarProperty Name="InvoicePostalCode" ColumnName="InvoicePostalCode" />
+          <ScalarProperty Name="InvoiceCity" ColumnName="InvoiceCity" />
+          <ScalarProperty Name="InvoiceCountry" ColumnName="InvoiceCountry" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="resetPasswordCode" ColumnName="resetPasswordCode" />
+          <ScalarProperty Name="IsEmailverify" ColumnName="IsEmailverify" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="EVModelModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="BusinessUnitName" ColumnName="BusinessUnitName" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhoneNumbers">
+      <EntityTypeMapping TypeName="EVModelModel.PhoneNumber">
+        <MappingFragment StoreEntitySet="PhoneNumbers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RFIDTags">
+      <EntityTypeMapping TypeName="EVModelModel.RFIDTag">
+        <MappingFragment StoreEntitySet="RFIDTags">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Hex" ColumnName="Hex" />
+          <ScalarProperty Name="TagType" ColumnName="TagType" />
+          <ScalarProperty Name="RFIDTagNumber" ColumnName="RFIDTagNumber" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="EVModelModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="EVModelModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staticpages">
+      <EntityTypeMapping TypeName="EVModelModel.Staticpage">
+        <MappingFragment StoreEntitySet="Staticpages">
+          <ScalarProperty Name="StaticPageId" ColumnName="StaticPageId" />
+          <ScalarProperty Name="StaticPageName" ColumnName="StaticPageName" />
+          <ScalarProperty Name="StaticPageContent" ColumnName="StaticPageContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="EVModelModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="LicenseId" ColumnName="LicenseId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Delete_BusinessUnit" FunctionName="EVModelModel.Store.Delete_BusinessUnit" />
+    <FunctionImportMapping FunctionImportName="Delete_Charger" FunctionName="EVModelModel.Store.Delete_Charger" />
+    <FunctionImportMapping FunctionImportName="Delete_Connector" FunctionName="EVModelModel.Store.Delete_Connector" />
+    <FunctionImportMapping FunctionImportName="Delete_Connector_Type" FunctionName="EVModelModel.Store.Delete_Connector_Type" />
+    <FunctionImportMapping FunctionImportName="Delete_Customer" FunctionName="EVModelModel.Store.Delete_Customer" />
+    <FunctionImportMapping FunctionImportName="Delete_Location" FunctionName="EVModelModel.Store.Delete_Location" />
+    <FunctionImportMapping FunctionImportName="Delete_PhoneNumber" FunctionName="EVModelModel.Store.Delete_PhoneNumber" />
+    <FunctionImportMapping FunctionImportName="Delete_RFIDTag" FunctionName="EVModelModel.Store.Delete_RFIDTag" />
+    <FunctionImportMapping FunctionImportName="Delete_Role" FunctionName="EVModelModel.Store.Delete_Role" />
+    <FunctionImportMapping FunctionImportName="Delete_Vehicle" FunctionName="EVModelModel.Store.Delete_Vehicle" />
+    <FunctionImportMapping FunctionImportName="Insert_BusinessUnit" FunctionName="EVModelModel.Store.Insert_BusinessUnit" />
+    <FunctionImportMapping FunctionImportName="Insert_Charger" FunctionName="EVModelModel.Store.Insert_Charger" />
+    <FunctionImportMapping FunctionImportName="Insert_Connector" FunctionName="EVModelModel.Store.Insert_Connector" />
+    <FunctionImportMapping FunctionImportName="Insert_Connector_Type" FunctionName="EVModelModel.Store.Insert_Connector_Type" />
+    <FunctionImportMapping FunctionImportName="Insert_Customer" FunctionName="EVModelModel.Store.Insert_Customer" />
+    <FunctionImportMapping FunctionImportName="Insert_Location" FunctionName="EVModelModel.Store.Insert_Location" />
+    <FunctionImportMapping FunctionImportName="Insert_PhoneNumber" FunctionName="EVModelModel.Store.Insert_PhoneNumber" />
+    <FunctionImportMapping FunctionImportName="Insert_RFIDTag" FunctionName="EVModelModel.Store.Insert_RFIDTag" />
+    <FunctionImportMapping FunctionImportName="Insert_Role" FunctionName="EVModelModel.Store.Insert_Role" />
+    <FunctionImportMapping FunctionImportName="Insert_Vehicle" FunctionName="EVModelModel.Store.Insert_Vehicle" />
+    <FunctionImportMapping FunctionImportName="Select_BusinessUnits" FunctionName="EVModelModel.Store.Select_BusinessUnits">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_BusinessUnits_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BusinessUnitName" ColumnName="BusinessUnitName" />
+          <ScalarProperty Name="BusinessUnitCode" ColumnName="BusinessUnitCode" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_Chargers" FunctionName="EVModelModel.Store.Select_Chargers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_Chargers_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ChargerName" ColumnName="ChargerName" />
+          <ScalarProperty Name="Availability" ColumnName="Availability" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_Connector" FunctionName="EVModelModel.Store.Select_Connector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_Connector_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChargerId" ColumnName="ChargerId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="ConnectorTypeId" ColumnName="ConnectorTypeId" />
+          <ScalarProperty Name="ConnectorStatus" ColumnName="ConnectorStatus" />
+          <ScalarProperty Name="SMSCode" ColumnName="SMSCode" />
+          <ScalarProperty Name="ConnectorUnId" ColumnName="ConnectorUnId" />
+          <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_ConnectorTypes" FunctionName="EVModelModel.Store.Select_ConnectorTypes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_ConnectorTypes_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConnectorName" ColumnName="ConnectorName" />
+          <ScalarProperty Name="ConnectorStandard" ColumnName="ConnectorStandard" />
+          <ScalarProperty Name="PowerType" ColumnName="PowerType" />
+          <ScalarProperty Name="ConnectorFormate" ColumnName="ConnectorFormate" />
+          <ScalarProperty Name="ConnectorCategory" ColumnName="ConnectorCategory" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_Customer" FunctionName="EVModelModel.Store.Select_Customer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_Customer_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="streetAddress" ColumnName="streetAddress" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="InvoiceStreetAddress" ColumnName="InvoiceStreetAddress" />
+          <ScalarProperty Name="InvoicePostalCode" ColumnName="InvoicePostalCode" />
+          <ScalarProperty Name="InvoiceCity" ColumnName="InvoiceCity" />
+          <ScalarProperty Name="InvoiceCountry" ColumnName="InvoiceCountry" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="resetPasswordCode" ColumnName="resetPasswordCode" />
+          <ScalarProperty Name="IsEmailverify" ColumnName="IsEmailverify" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_Location" FunctionName="EVModelModel.Store.Select_Location">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_Location_Result">
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_PhoneNumber" FunctionName="EVModelModel.Store.Select_PhoneNumber">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_PhoneNumber_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_RFIDTag" FunctionName="EVModelModel.Store.Select_RFIDTag">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_RFIDTag_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Hex" ColumnName="Hex" />
+          <ScalarProperty Name="TagType" ColumnName="TagType" />
+          <ScalarProperty Name="RFIDTagNumber" ColumnName="RFIDTagNumber" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_Role" FunctionName="EVModelModel.Store.Select_Role">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_Role_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_Vehicle" FunctionName="EVModelModel.Store.Select_Vehicle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EVModelModel.Select_Vehicle_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="LicenseId" ColumnName="LicenseId" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Update_BusinessUnit" FunctionName="EVModelModel.Store.Update_BusinessUnit" />
+    <FunctionImportMapping FunctionImportName="Update_Charger" FunctionName="EVModelModel.Store.Update_Charger" />
+    <FunctionImportMapping FunctionImportName="Update_Connector" FunctionName="EVModelModel.Store.Update_Connector" />
+    <FunctionImportMapping FunctionImportName="Update_Connector_Type" FunctionName="EVModelModel.Store.Update_Connector_Type" />
+    <FunctionImportMapping FunctionImportName="Update_Customer" FunctionName="EVModelModel.Store.Update_Customer" />
+    <FunctionImportMapping FunctionImportName="Update_Location" FunctionName="EVModelModel.Store.Update_Location" />
+    <FunctionImportMapping FunctionImportName="Update_PhoneNumber" FunctionName="EVModelModel.Store.Update_PhoneNumber" />
+    <FunctionImportMapping FunctionImportName="Update_RFIDTag" FunctionName="EVModelModel.Store.Update_RFIDTag" />
+    <FunctionImportMapping FunctionImportName="Update_Role" FunctionName="EVModelModel.Store.Update_Role" />
+    <FunctionImportMapping FunctionImportName="Update_Vehicle" FunctionName="EVModelModel.Store.Update_Vehicle" />
+  </EntityContainerMapping>
+</Mapping>

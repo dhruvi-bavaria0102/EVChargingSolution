@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body style="background-image: url('../../Image/ev1.jpg'); ">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h4 style="color:yellow;padding-top:5px">EVCharging</h4>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Location", "userLocation", "Display", new { @class = "glyphicon glyphicon-user" })</li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Update Profile <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                @Html.ActionLink("UpdateProfile", "UpdateProfile", "Display", new { @class = "glyphicon glyphicon-user" })
+                            </li>
+                            <li>@Html.ActionLink("ChangePassword", "Index", "Display", new { @class = "glyphicon glyphicon-user" })</li>
+                            <li>@Html.ActionLink("LogOut", "Logout", "Display", new { @class = "glyphicon glyphicon-user" })</li>
+
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+    $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });</script>
+
+</body>
+</html>
+
+
+
