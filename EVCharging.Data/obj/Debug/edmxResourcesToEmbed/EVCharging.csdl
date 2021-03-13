@@ -125,6 +125,8 @@
     <Property Name="IsDeleted" Type="Boolean" />
     <NavigationProperty Name="Chargers" Relationship="Self.FK__Chargers__Locati__35BCFE0A" FromRole="Locations" ToRole="Chargers" />
     <NavigationProperty Name="Connectors" Relationship="Self.FK__Connector__Locat__38996AB5" FromRole="Locations" ToRole="Connectors" />
+    <NavigationProperty Name="Locations1" Relationship="Self.FK_Locations_Locations" FromRole="Locations" ToRole="Locations1" />
+    <NavigationProperty Name="Location1" Relationship="Self.FK_Locations_Locations" FromRole="Locations1" ToRole="Locations" />
   </EntityType>
   <EntityType Name="PhoneNumber">
     <Key>
@@ -169,13 +171,17 @@
       <PropertyRef Name="ServiceID" />
     </Key>
     <Property Name="ServiceID" Type="Int32" Nullable="false" />
-    <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ServiceDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Accepted" Type="Boolean" />
+    <Property Name="ServiceStatusID" Type="Int32" />
     <Property Name="InsertDate" Type="DateTime" Precision="3" />
     <Property Name="UpdateDate" Type="DateTime" Precision="3" />
     <Property Name="DeleteDate" Type="DateTime" Precision="3" />
     <Property Name="isDeleted" Type="Boolean" />
+    <NavigationProperty Name="Services1" Relationship="Self.FK_Services_Services" FromRole="Services" ToRole="Services1" />
+    <NavigationProperty Name="Service1" Relationship="Self.FK_Services_Services" FromRole="Services1" ToRole="Services" />
+    <NavigationProperty Name="status" Relationship="Self.FK_Services_status" FromRole="Services" ToRole="status" />
   </EntityType>
   <EntityType Name="Staticpage">
     <Key>
@@ -184,6 +190,14 @@
     <Property Name="StaticPageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="StaticPageName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="StaticPageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="status">
+    <Key>
+      <PropertyRef Name="ServiceStatusId" />
+    </Key>
+    <Property Name="ServiceStatusId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Services" Relationship="Self.FK_Services_status" FromRole="status" ToRole="Services" />
   </EntityType>
   <EntityType Name="Vehicle">
     <Key>
@@ -283,6 +297,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Locations_Locations">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="Locations1" Type="Self.Location" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Locations1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Services_Services">
+    <End Role="Services" Type="Self.Service" Multiplicity="1" />
+    <End Role="Services1" Type="Self.Service" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="ServiceID" />
+      </Principal>
+      <Dependent Role="Services1">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Services_status">
+    <End Role="status" Type="Self.status" Multiplicity="0..1" />
+    <End Role="Services" Type="Self.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="ServiceStatusId" />
+      </Principal>
+      <Dependent Role="Services">
+        <PropertyRef Name="ServiceStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="EVModelEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BusinessUnits" EntityType="Self.BusinessUnit" />
     <EntitySet Name="Chargers" EntityType="Self.Charger" />
@@ -296,6 +346,7 @@
     <EntitySet Name="Roles" EntityType="Self.Role" />
     <EntitySet Name="Services" EntityType="Self.Service" />
     <EntitySet Name="Staticpages" EntityType="Self.Staticpage" />
+    <EntitySet Name="status" EntityType="Self.status" />
     <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
     <AssociationSet Name="FK__Customers__Busin__398D8EEE" Association="Self.FK__Customers__Busin__398D8EEE">
       <End Role="BusinessUnits" EntitySet="BusinessUnits" />
@@ -324,6 +375,18 @@
     <AssociationSet Name="FK__Vehicles__Custom__3C69FB99" Association="Self.FK__Vehicles__Custom__3C69FB99">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Locations" Association="Self.FK_Locations_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Locations1" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Services_Services" Association="Self.FK_Services_Services">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="Services1" EntitySet="Services" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Services_status" Association="Self.FK_Services_status">
+      <End Role="status" EntitySet="status" />
+      <End Role="Services" EntitySet="Services" />
     </AssociationSet>
     <FunctionImport Name="Delete_BusinessUnit">
       <Parameter Name="BusinessUnitName" Mode="In" Type="String" />
@@ -662,7 +725,6 @@
       <Parameter Name="DeleteDate" Mode="In" Type="DateTime" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
-    <FunctionImport Name="AllLocaion" EntitySet="Locations" ReturnType="Collection(EVModelModel.Location)" />
   </EntityContainer>
   <ComplexType Name="Select_BusinessUnits_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -737,9 +799,18 @@
     <Property Type="Guid" Name="ActivationCode" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Select_Location_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="LocationName" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
     <Property Type="Decimal" Name="Latitude" Nullable="true" Precision="18" Scale="6" />
     <Property Type="Decimal" Name="Longitude" Nullable="true" Precision="18" Scale="6" />
+    <Property Type="String" Name="BusinessUnitName" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="CurrencyCode" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="InsertDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DeleteDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
   </ComplexType>
   <ComplexType Name="Select_PhoneNumber_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

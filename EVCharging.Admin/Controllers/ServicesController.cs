@@ -17,6 +17,7 @@ namespace EVCharging.Admin.Controllers
         // GET: Services
         public ActionResult Index()
         {
+            var connectors = db.Services.Include(c => c.status);
             return View(db.Services.ToList());
         }
 
@@ -38,6 +39,7 @@ namespace EVCharging.Admin.Controllers
         // GET: Services/Create
         public ActionResult Create()
         {
+            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace EVCharging.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceID,ServiceName,ServiceDescription,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
+        public ActionResult Create([Bind(Include = "ServiceID,ServiceName,ServiceDescription,ServiceStatusId,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +57,7 @@ namespace EVCharging.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus", service.ServiceStatusID);
             return View(service);
         }
 
@@ -71,6 +73,7 @@ namespace EVCharging.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus", service.ServiceStatusID);
             return View(service);
         }
 
@@ -79,7 +82,7 @@ namespace EVCharging.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ServiceID,ServiceName,ServiceDescription,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
+        public ActionResult Edit([Bind(Include = "ServiceID,ServiceName,ServiceDescription,ServiceStatusId,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +91,7 @@ namespace EVCharging.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus", service.ServiceStatusID);
             return View(service);
         }
 
@@ -107,23 +111,31 @@ namespace EVCharging.Admin.Controllers
         }
 
         // POST: Services/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Service service)
-        {
-            using (EVModelEntities entities = new EVModelEntities())
-            {
-               Service updatedService = (from c in entities.Services
-                                            where c.ServiceID == service.ServiceID
-                                            select c).FirstOrDefault();
-              //  updatedService.DeleteDate = DateTime.UtcNow;
-               // updatedService.isDeleted = true;
-                entities.SaveChanges();
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(Service service)
+        //{
+        //    using (EVModelEntities entities = new EVModelEntities())
+        //    {
+        //        Service updatedService = (from c in entities.Services
+        //                                  where c.ServiceID == service.ServiceID
+        //                                  select c).FirstOrDefault();
+        //        //  updatedService.DeleteDate = DateTime.UtcNow;
+        //        // updatedService.isDeleted = true;
+        //        entities.SaveChanges();
+        //    }
 
+        //    return RedirectToAction("Index");
+        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Service staticpage = db.Services.Find(id);
+            db.Services.Remove(staticpage);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

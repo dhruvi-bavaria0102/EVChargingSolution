@@ -13,8 +13,17 @@ namespace EVCharging.Data
     
     public partial class Select_Location_Result
     {
+        public int ID { get; set; }
         public string LocationName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
         public Nullable<decimal> Latitude { get; set; }
         public Nullable<decimal> Longitude { get; set; }
+        public string BusinessUnitName { get; set; }
+        public string CurrencyCode { get; set; }
+        public Nullable<System.DateTime> InsertDate { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public Nullable<System.DateTime> DeleteDate { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     }
 }

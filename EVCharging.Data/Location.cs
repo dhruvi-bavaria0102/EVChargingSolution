@@ -38,5 +38,7 @@ namespace EVCharging.Data
         public virtual ICollection<Charger> Chargers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Connector> Connectors { get; set; }
+        public virtual Location Locations1 { get; set; }
+        public virtual Location Location1 { get; set; }
     }
 }

@@ -133,6 +133,9 @@
     <Compile Include="Staticpage.cs">
       <DependentUpon>EVCharging.tt</DependentUpon>
     </Compile>
+    <Compile Include="status.cs">
+      <DependentUpon>EVCharging.tt</DependentUpon>
+    </Compile>
     <Compile Include="Vehicle.cs">
       <DependentUpon>EVCharging.tt</DependentUpon>
     </Compile>

@@ -18,9 +18,19 @@ namespace EVCharging.Data
         public string ServiceName { get; set; }
         public string ServiceDescription { get; set; }
         public Nullable<bool> Accepted { get; set; }
+        public Nullable<int> ServiceStatusID { get; set; }
         public Nullable<System.DateTime> InsertDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public Nullable<System.DateTime> DeleteDate { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+    
+        public virtual Service Services1 { get; set; }
+        public virtual Service Service1 { get; set; }
+        public virtual status status { get; set; }
     }
+}
+enum ServiceStatusID
+{
+    pending,
+    completed
 }

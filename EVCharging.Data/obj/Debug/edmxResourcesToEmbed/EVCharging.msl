@@ -164,11 +164,12 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Services">
       <EntityTypeMapping TypeName="EVModelModel.Service">
-        <MappingFragment StoreEntitySet="Service">
+        <MappingFragment StoreEntitySet="Services">
           <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
           <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="ServiceStatusID" ColumnName="ServiceStatusID" />
           <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
@@ -182,6 +183,14 @@
           <ScalarProperty Name="StaticPageId" ColumnName="StaticPageId" />
           <ScalarProperty Name="StaticPageName" ColumnName="StaticPageName" />
           <ScalarProperty Name="StaticPageContent" ColumnName="StaticPageContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="EVModelModel.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="ServiceStatusId" ColumnName="ServiceStatusId" />
+          <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -314,9 +323,18 @@
     <FunctionImportMapping FunctionImportName="Select_Location" FunctionName="EVModelModel.Store.Select_Location">
       <ResultMapping>
         <ComplexTypeMapping TypeName="EVModelModel.Select_Location_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="BusinessUnitName" ColumnName="BusinessUnitName" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -384,6 +402,5 @@
     <FunctionImportMapping FunctionImportName="Update_RFIDTag" FunctionName="EVModelModel.Store.Update_RFIDTag" />
     <FunctionImportMapping FunctionImportName="Update_Role" FunctionName="EVModelModel.Store.Update_Role" />
     <FunctionImportMapping FunctionImportName="Update_Vehicle" FunctionName="EVModelModel.Store.Update_Vehicle" />
-    <FunctionImportMapping FunctionImportName="AllLocaion" FunctionName="EVModelModel.Store.Select_Location" />
   </EntityContainerMapping>
 </Mapping>
