@@ -4,18 +4,19 @@
     ViewBag.Title = "FAQ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <div style="background-color:white">
+        <h2>Contact</h2>
 
-<h2>Contact</h2>
+        @foreach (var item in Model)
+        {
+            string nmb = "FAQ";
 
-@foreach (var item in Model)
-{
-    string nmb = "FAQ";
+            if (item.StaticPageName == nmb)
+            {
 
-    if (item.StaticPageName == nmb)
-    {
+                <h4>@Html.Raw(item.StaticPageContent) </h4>
 
-              <h4>@Html.Raw(item.StaticPageContent) </h4>
+            }
 
-    }
-
-}
+        }
+    </div>

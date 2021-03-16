@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
     @Styles.Render("~/Content/Site.css")
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" />    
 </head>
-<body style="background-image:url('../../Image/EV.jpg');">
-    <div class="navbar navbar-inverse navbar-fixed-top " style="color:white;">
+<body style="background-image:url('../../Image/canva.png')">
+    <nav class="navbar navbar-inverse navbar-fixed-top " style="color:white;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,27 +18,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("EVCharging", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <h4 style="color:greenyellow;padding-top:5px">EVCharging</h4>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav  ">
 
 
-                    <li> @Html.ActionLink("AboutUs", "About", "Home")  </li>
+                    <li> @Html.ActionLink("AboutUs", "About", "Home", null, new {style = "color: white" })  </li>
 
-                    <li>@Html.ActionLink("ContactUs", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
+                    <li>@Html.ActionLink("ContactUs", "Contact", "Home", null, new {style = "color: white" })</li>
+                    <li>@Html.ActionLink("FAQ", "FAQ", "Home",null, new {style = "color: white" })</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right ">
 
 
-                    <li> @Html.ActionLink("SignUp", "Register", "Home")</li>
+                    <li> @Html.ActionLink("SignUp", "Register", "Home", null, new {style = "color: white" })</li>
 
-                    <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    <li>@Html.ActionLink("Login", "Login", "Home", null, new {style = "color: white" })</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
    
     <div class="container body-content">
         @RenderBody()

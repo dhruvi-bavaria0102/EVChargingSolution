@@ -11,7 +11,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="background-image: url('~/Image/back.jfif'); ">
+<body style="background-image: url('../../Image/back12.jpg'); ">
     <div class=" navbar navbar-inverse navbar-fixed-top  ">
         <div class="container">
             <div class="navbar-header">
@@ -20,20 +20,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h4 style="color:yellow;padding-top:5px">EVCharging</h4>
+                <h4 style="color:greenyellow;padding-top:5px">EVCharging</h4>
 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Location", "userLocation", "Display")</li>
+                    <li>@Html.ActionLink("Location", "userLocation", "Display",null, new {style = "color: white" })</li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle">Update Profile <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" style = "color: white">Update Profile <b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
-                            <li>
+                            <li style="color:yellow;">
                                 @Html.ActionLink("UpdateProfile", "UpdateProfile", "Display")
                             </li>
                             <li>@Html.ActionLink("ChangePassword", "Index", "Display")</li>
