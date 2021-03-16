@@ -65,16 +65,6 @@
     <NavigationProperty Name="Connector_Types" Relationship="Self.FK__Connector__Conne__37A5467C" FromRole="Connectors" ToRole="Connector_Types" />
     <NavigationProperty Name="Location" Relationship="Self.FK__Connector__Locat__38996AB5" FromRole="Connectors" ToRole="Locations" />
   </EntityType>
-  <EntityType Name="Contact">
-    <Key>
-      <PropertyRef Name="ContactID" />
-    </Key>
-    <Property Name="ContactID" Type="Int32" Nullable="false" />
-    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="SupportMail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="MarketingMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="ID" />
@@ -303,7 +293,6 @@
     <EntitySet Name="Chargers" EntityType="Self.Charger" />
     <EntitySet Name="Connector_Types" EntityType="Self.Connector_Type" />
     <EntitySet Name="Connectors" EntityType="Self.Connector" />
-    <EntitySet Name="Contacts" EntityType="Self.Contact" />
     <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Locations" EntityType="Self.Location" />
     <EntitySet Name="PhoneNumbers" EntityType="Self.PhoneNumber" />

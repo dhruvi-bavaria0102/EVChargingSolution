@@ -58,16 +58,6 @@
     <Property Name="DeleteDate" Type="datetime" />
     <Property Name="isDeleted" Type="bit" />
   </EntityType>
-  <EntityType Name="Contact">
-    <Key>
-      <PropertyRef Name="ContactID" />
-    </Key>
-    <Property Name="ContactID" Type="int" Nullable="false" />
-    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
-    <Property Name="Address" Type="nvarchar" MaxLength="250" />
-    <Property Name="SupportMail" Type="nvarchar" MaxLength="250" />
-    <Property Name="MarketingMail" Type="nvarchar" MaxLength="100" />
-  </EntityType>
   <EntityType Name="Customers">
     <Key>
       <PropertyRef Name="ID" />
@@ -624,7 +614,6 @@
     <EntitySet Name="Chargers" EntityType="Self.Chargers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Connector Types" EntityType="Self.Connector Types" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Connectors" EntityType="Self.Connectors" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhoneNumbers" EntityType="Self.PhoneNumbers" Schema="dbo" store:Type="Tables" />

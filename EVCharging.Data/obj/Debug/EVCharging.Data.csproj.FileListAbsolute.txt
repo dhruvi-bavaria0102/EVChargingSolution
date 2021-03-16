@@ -57,3 +57,15 @@ C:\Users\sweta.mandani\Project_work\Final\EVChargingSolution\EVCharging.Data\obj
 C:\Users\sweta.mandani\Project_work\Final\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.dll
 C:\Users\sweta.mandani\Project_work\Final\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.pdb
 C:\Users\sweta.mandani\Project_work\Final\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csprojAssemblyReference.cache
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll.config
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.dll
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EVCharging.Data.pdb
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.dll
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.xml
+D:\Project\EVChargingSolution\EVCharging.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csprojAssemblyReference.cache
+D:\Project\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CoreCompileInputs.cache
+D:\Project\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.csproj.CopyComplete
+D:\Project\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.dll
+D:\Project\EVChargingSolution\EVCharging.Data\obj\Debug\EVCharging.Data.pdb

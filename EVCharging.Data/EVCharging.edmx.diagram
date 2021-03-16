@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="EVModelModel.Charger" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Connector_Type" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Connector" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.Contact" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Customer" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Location" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.PhoneNumber" Width="1.5" PointX="10.25" PointY="7.25" IsExpanded="true" />

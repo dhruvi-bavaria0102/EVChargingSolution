@@ -1,25 +1,84 @@
-﻿<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCKQFV5gkdCH2cul-N5qrjZ05b0CzqTIMs&callback=initialize&libraries=places" type="text/javascript"></script>
+﻿@model EVCharging.Data.Location
 
-<script type="text/javascript">
-    function initialize() {
-        var latlng = new google.maps.LatLng(51.4975941, -0.0803232);
-        var map = new google.maps.Map(document.getElementById('map'), {
-        center: latlng,
-        zoom: 11,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-});
-var marker = new google.maps.Marker({
-    position: latlng,
-    map: map,
-    title: 'Set lat/lon values for this property',
-    draggable: true
-});
+@{
 
-google.maps.event.addListener(marker, 'dragend', function (event) {
-    document.getElementById("latbox").value = this.getPosition().lat();
-    document.getElementById("lngbox").value = this.getPosition().lng();
-});
-</script>
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<head>
+    <style>
+
+        #map_canvas {
+            width: 400px;
+            height: 300px;
+        }
+
+        #current {
+            padding-top: 25px;
+        }
+
+        #myMap {
+            height: 350px;
+            width: 680px;
+        }
+    </style>
 
 
 
+   
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKQFV5gkdCH2cul-N5qrjZ05b0CzqTIMs&libraries=places"></script>
+
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+            var map;
+            var marker;
+            var myLatlng = new google.maps.LatLng(20.268455824834792, 85.84099235520011);
+            var geocoder = new google.maps.Geocoder();
+            var infowindow = new google.maps.InfoWindow();
+            function initialize() {
+                var mapOptions = {
+                    zoom: 18,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById("myMap"), mapOptions);
+
+                var myMarker = new google.maps.Marker({
+                    map:map,
+                    position: myLatlng,
+                    draggable: true
+                });
+
+                geocoder.geocode({ 'latLng': myLatlng }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            $('#latitude,#longitude').show();
+                            $('#address').val(results[0].formatted_address);
+                            $('#latitude').val(marker.getPosition().lat());
+                            $('#longitude').val(marker.getPosition().lng());
+                            infowindow.setContent(result[0].formatted_address);
+                            infowindow.open(map, marker);
+
+                        }
+                    }
+                });
+                google.maps.event.addListener(myMarker, 'dragend', function () {
+                    document.getElementById('latitude').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
+                });
+
+                google.maps.event.addListener(myMarker, 'dragstart', function (evt) {
+                    document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+                });
+                    });
+            });
+                        }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+        
+    </head>
+    <body>
+        <div id="myMap"></div>
+        <input id="address" type="text" style="width:600px" />
+        <input type="text" id="latitude" placeholder="Latitude" />
+        <input type="text" id="longitude" placeholder="Longitude" />
+    </body>
+       

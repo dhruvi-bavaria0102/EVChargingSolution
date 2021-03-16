@@ -63,17 +63,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Contacts">
-      <EntityTypeMapping TypeName="EVModelModel.Contact">
-        <MappingFragment StoreEntitySet="Contact">
-          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="SupportMail" ColumnName="SupportMail" />
-          <ScalarProperty Name="MarketingMail" ColumnName="MarketingMail" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="EVModelModel.Customer">
         <MappingFragment StoreEntitySet="Customers">
