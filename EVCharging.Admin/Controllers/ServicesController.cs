@@ -17,7 +17,7 @@ namespace EVCharging.Admin.Controllers
         // GET: Services
         public ActionResult Index()
         {
-            var connectors = db.Services.Include(c => c.status);
+           
             return View(db.Services.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace EVCharging.Admin.Controllers
         // GET: Services/Create
         public ActionResult Create()
         {
-            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus");
+            
             return View();
         }
 
@@ -48,16 +48,24 @@ namespace EVCharging.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceID,ServiceName,ServiceDescription,ServiceStatusId,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
+        public ActionResult Create([Bind(Include = "ServiceID,ServiceName,ServiceDescription,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
         {
             if (ModelState.IsValid)
             {
+                service.ServiceStatus = "pending";
                 service.InsertDate = DateTime.UtcNow;
                 db.Services.Add(service);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException e)
+                {
+                    Console.WriteLine(e);
+                }
                 return RedirectToAction("Index");
             }
-            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus", service.ServiceStatusID);
+           
             return View(service);
         }
 
@@ -73,7 +81,7 @@ namespace EVCharging.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus", service.ServiceStatusID);
+            
             return View(service);
         }
 
@@ -82,16 +90,17 @@ namespace EVCharging.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ServiceID,ServiceName,ServiceDescription,ServiceStatusId,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted")] Service service)
+        public ActionResult Edit([Bind(Include = "ServiceID,ServiceName,ServiceDescription,Accepted,InsertDate,UpdateDate,DeleteDate,isDeleted,ServiceStatus")] Service service)
         {
             if (ModelState.IsValid)
             {
+            
                 service.UpdateDate = DateTime.UtcNow;
                 db.Entry(service).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ServiceStatusID = new SelectList(db.status, "ServiceStatusId", "ServiceStatus", service.ServiceStatusID);
+           
             return View(service);
         }
 

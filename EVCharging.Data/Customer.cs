@@ -11,7 +11,8 @@ namespace EVCharging.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,40 +21,104 @@ namespace EVCharging.Data
             this.PhoneNumbers = new HashSet<PhoneNumber>();
             this.Vehicles = new HashSet<Vehicle>();
         }
-    
+        [Key]
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Enter FirstName!")]
+        [StringLength(50)]
+        [Display(Name = "FirstName")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Enter LastName!")]
+        [MaxLength(50), MinLength(2)]
         public string LastName { get; set; }
+
+
         public Nullable<int> BusinessUnitID { get; set; }
+
+        [Required(ErrorMessage = "Email require!")]
+
+        [Display(Name = "Email")]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" + @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" + @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Invalid Email")]
         public string EmailAddress { get; set; }
+        [Required(ErrorMessage = "streetAddress  require!")]
+
+        [Display(Name = "StreetAddress ")]
         public string streetAddress { get; set; }
+        [Required(ErrorMessage = "PostalCode require!")]
+
+        [Display(Name = "PostalCode")]
         public string PostalCode { get; set; }
+        [Required(ErrorMessage = "City require!")]
+
+        [Display(Name = "City")]
         public string City { get; set; }
+        [Required(ErrorMessage = "Country require!")]
+
+        [Display(Name = "Country")]
         public string Country { get; set; }
+        [Required(ErrorMessage = "InvoiceStreetAddress  require!")]
+
+        [Display(Name = "InvoiceStreetAddress ")]
         public string InvoiceStreetAddress { get; set; }
+        [Required(ErrorMessage = "InvoicePostalCode require!")]
+
+        [Display(Name = "InvoicePostalCode")]
         public string InvoicePostalCode { get; set; }
+        [Required(ErrorMessage = "InvoiceCity require!")]
+
+        [Display(Name = "InvoiceCity")]
         public string InvoiceCity { get; set; }
+        [Required(ErrorMessage = "InvoiceCountry require!")]
+
+        [Display(Name = "InvoiceCountry ")]
         public string InvoiceCountry { get; set; }
+        [Required(ErrorMessage = "Site  require!")]
+
+        [Display(Name = "Site ")]
         public string Site { get; set; }
+
+        [Required(ErrorMessage = "Enter Phone no!")]
+        [Display(Name = "Phone no.")]
+        [DataType(DataType.PhoneNumber)]
+        [StringLength(13, MinimumLength = 10)]
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Not a valid Phone number")]
         public string Telephone { get; set; }
+
+
+        [Display(Name = "Role")]
         public string RoleId { get; set; }
         public Nullable<System.DateTime> InsertDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public Nullable<System.DateTime> DeleteDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        [Required(ErrorMessage = "Enter Password!")]
+        [Display(Name = "Password")]
+        [DataType(DataType.Password)]
+        [RegularExpression("([a-z]|[A-Z]|[0-9]|[\\W]){4}[a-zA-Z0-9\\W]{3,11}$", ErrorMessage = "Enter AtLest 8 Charater , one Special Symbol  and one UpperCase Letter")]
+
+
         public string Password { get; set; }
         public string resetPasswordCode { get; set; }
         public Nullable<bool> IsEmailverify { get; set; }
         public Nullable<System.Guid> ActivationCode { get; set; }
-    
+
         public virtual BusinessUnit BusinessUnit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehicle> Vehicles { get; set; }
+
+
+        [Required(ErrorMessage = "Enter RePassword!")]
+        [Display(Name = "Re-Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Password is not identical")]
+        public string ConfirmPassword { get; set; }
     }
 }
-enum RoleID
+
+public enum RoleId
 {
     Admin,
     User

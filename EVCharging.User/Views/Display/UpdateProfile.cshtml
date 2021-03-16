@@ -114,11 +114,12 @@
                         @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
                     </div>
-                   
+                    
+                        @Html.HiddenFor(model => model.RoleId)
+                       
+                    @Html.HiddenFor(model => model.ConfirmPassword)
+                    @Html.HiddenFor(model => model.Password)
 
-                        @Html.HiddenFor(model => model.ConfirmPassword)
-                        @Html.HiddenFor(model => model.Password)
-                        
 
 
 

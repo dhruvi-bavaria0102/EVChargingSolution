@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Accepted)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status.ServiceStatus)
+            @Html.DisplayNameFor(model => model.ServiceStatus)
         </th>
 
         <th></th>
@@ -41,7 +41,7 @@
         @Html.DisplayFor(modelItem => item.Accepted)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.status.ServiceStatus)
+        @Html.DisplayFor(modelItem => item.ServiceStatus)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.ServiceID }) |

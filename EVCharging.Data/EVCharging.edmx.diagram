@@ -4,21 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19ee83e132084cda975101771d8fd7a8" Name="Diagram1">
-        <EntityTypeShape EntityType="EVModelModel.BusinessUnit" Width="1.5" PointX="10.75" PointY="2.875" IsExpanded="true" />
+      <Diagram DiagramId="a105d53da73d4dad85dc60ffb3958c64" Name="Diagram1">
+        <EntityTypeShape EntityType="EVModelModel.BusinessUnit" Width="1.5" PointX="5.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Charger" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Connector_Type" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Connector" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Contact" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.Customer" Width="1.5" PointX="13" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.Customer" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="EVModelModel.Location" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.PhoneNumber" Width="1.5" PointX="15.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.RFIDTag" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.Role" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.Service" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.Staticpage" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.status" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EVModelModel.Vehicle" Width="1.5" PointX="15.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.PhoneNumber" Width="1.5" PointX="10.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.RFIDTag" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.Role" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.Service" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.Staticpage" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EVModelModel.Vehicle" Width="1.5" PointX="10.25" PointY="10.5" IsExpanded="true" />
         <AssociationConnector Association="EVModelModel.FK__Customers__Busin__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="EVModelModel.FK__Chargers__Locati__35BCFE0A" ManuallyRouted="false" />
         <AssociationConnector Association="EVModelModel.FK__Connector__Charg__36B12243" ManuallyRouted="false" />
@@ -27,8 +26,6 @@
         <AssociationConnector Association="EVModelModel.FK__PhoneNumb__Custo__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="EVModelModel.FK__Vehicles__Custom__3C69FB99" ManuallyRouted="false" />
         <AssociationConnector Association="EVModelModel.FK_Locations_Locations" ManuallyRouted="false" />
-        <AssociationConnector Association="EVModelModel.FK_Services_Services" ManuallyRouted="false" />
-        <AssociationConnector Association="EVModelModel.FK_Services_status" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

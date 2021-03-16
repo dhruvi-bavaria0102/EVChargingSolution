@@ -100,7 +100,7 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="resetPasswordCode" ColumnName="resetPasswordCode" />
           <ScalarProperty Name="IsEmailverify" ColumnName="IsEmailverify" />
-          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -164,12 +164,12 @@
     </EntitySetMapping>
     <EntitySetMapping Name="Services">
       <EntityTypeMapping TypeName="EVModelModel.Service">
-        <MappingFragment StoreEntitySet="Services">
+        <MappingFragment StoreEntitySet="Service">
           <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
           <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
           <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
           <ScalarProperty Name="Accepted" ColumnName="Accepted" />
-          <ScalarProperty Name="ServiceStatusID" ColumnName="ServiceStatusID" />
+          <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
           <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
@@ -183,14 +183,6 @@
           <ScalarProperty Name="StaticPageId" ColumnName="StaticPageId" />
           <ScalarProperty Name="StaticPageName" ColumnName="StaticPageName" />
           <ScalarProperty Name="StaticPageContent" ColumnName="StaticPageContent" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="status">
-      <EntityTypeMapping TypeName="EVModelModel.status">
-        <MappingFragment StoreEntitySet="status">
-          <ScalarProperty Name="ServiceStatusId" ColumnName="ServiceStatusId" />
-          <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -316,7 +308,7 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="resetPasswordCode" ColumnName="resetPasswordCode" />
           <ScalarProperty Name="IsEmailverify" ColumnName="IsEmailverify" />
-          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

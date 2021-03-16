@@ -51,14 +51,21 @@ namespace EVCharging.Admin.Controllers
       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,BusinessUnitID,EmailAddress,streetAddress,PostalCode,City,Country,InvoiceStreetAddress,InvoicePostalCode,InvoiceCity,InvoiceCountry,Site,Telephone,RoleId,InsertDate,UpdateDate,DeleteDate,IsDeleted,Password,resetPasswordCode,IsEmailverify,ActivationCode")] Customer customer)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,BusinessUnitID,EmailAddress,streetAddress,PostalCode,City,Country,InvoiceStreetAddress,InvoicePostalCode,InvoiceCity,InvoiceCountry,Site,Telephone,RoleId,InsertDate,UpdateDate,DeleteDate,IsDeleted,Password,resetPasswordCode,IsEmailverify,ActivationCode,ConfirmPassword")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 customer.InsertDate = DateTime.UtcNow;
    
                 db.Customers.Add(customer);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException e)
+                {
+                    Console.WriteLine(e);
+                }
                 return RedirectToAction("Index");
             }
 
@@ -89,7 +96,7 @@ namespace EVCharging.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,BusinessUnitID,EmailAddress,streetAddress,PostalCode,City,Country,InvoiceStreetAddress,InvoicePostalCode,InvoiceCity,InvoiceCountry,Site,Telephone,RoleId,InsertDate,UpdateDate,DeleteDate,IsDeleted,Password,resetPasswordCode,IsEmailverify,ActivationCode")] Customer customer)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,BusinessUnitID,EmailAddress,streetAddress,PostalCode,City,Country,InvoiceStreetAddress,InvoicePostalCode,InvoiceCity,InvoiceCountry,Site,Telephone,RoleId,InsertDate,UpdateDate,DeleteDate,IsDeleted,Password,resetPasswordCode,IsEmailverify,ActivationCode,ConfirmPassword")] Customer customer)
         {
             if (ModelState.IsValid)
             {

@@ -76,43 +76,45 @@ namespace EVCharging.User.Controllers
 
             return View();
         }
-        
-      
+
+
         public ActionResult UpdateProfile()
         {
-            return View();
+            string EmailAddress = Session["UserEmail"].ToString();
+            var pro = db.Customers.Where(u => u.EmailAddress.Equals(EmailAddress)).FirstOrDefault();
+            return View(pro);
 
         }
+
         [HttpPost]
-        
+
+
         public ActionResult UpdateProfile(Customer c, string ConfirmPassword)
 
         {
             string EmailAddress = Session["UserEmail"].ToString();
 
 
-           
-            if (!ModelState.IsValid)
-                {
 
-               var pro = db.Customers.Where(u => u.EmailAddress.Equals(EmailAddress)).FirstOrDefault();
-                if (pro.EmailAddress == EmailAddress)
-                {
-                   
-                    pro.Password = ConfirmPassword;
+            if (ModelState.IsValid)
+            {
+
+                var pro = db.Customers.Where(u => u.EmailAddress.Equals(EmailAddress)).FirstOrDefault();
 
 
-                    db.Entry(pro).State = EntityState.Modified;
-                    try
-                    {
-                        db.SaveChanges();
-                    }
-                    catch(DbEntityValidationException e)
-                    {
-                        Console.WriteLine(e);
-                    }
-                    return RedirectToAction("list", "Display");
-                }
+
+
+
+
+                
+                    db.Customers.Remove(pro);
+                    db.Customers.Add(c);
+                    db.SaveChanges();
+
+                
+                
+                return RedirectToAction("list", "Display");
+
             }
             else
             {
@@ -121,6 +123,7 @@ namespace EVCharging.User.Controllers
 
             return View();
         }
+
         public ActionResult Logout()
         {
             Session.Abandon();

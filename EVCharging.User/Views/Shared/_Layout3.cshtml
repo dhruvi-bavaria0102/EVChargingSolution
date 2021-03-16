@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Site.css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="background-image: url('../../Image/ev1.jpg'); ">
+<body style="background-image: url('../../Image/back.jfif'); ">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,8 +24,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    <li> <a href="https://localhost:44344/" target="_blank">ADMIN</a></li>
-                    <li>@Html.ActionLink("LogOut", "Logout", "Display", new { @class = "glyphicon glyphicon-user" })</li>
+                    <li style="color:white;"> <a href="https://localhost:44344/" target="_blank" >Admin</a></li>
+                    <li>@Html.ActionLink("LogOut", "Logout", "Display")</li>
                 </ul>
 
                 

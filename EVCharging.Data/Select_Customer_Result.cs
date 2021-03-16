@@ -36,6 +36,6 @@ namespace EVCharging.Data
         public string Password { get; set; }
         public string resetPasswordCode { get; set; }
         public Nullable<bool> IsEmailverify { get; set; }
-        public Nullable<System.Guid> ActivationCode { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }

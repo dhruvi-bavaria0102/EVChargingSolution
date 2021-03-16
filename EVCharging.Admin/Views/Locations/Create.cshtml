@@ -1,83 +1,122 @@
-﻿@model EVCharging.Data.Location
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Draggable Directions</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style type="text/css">
+      #right-panel {
+        font-family: "Roboto", "sans-serif";
+        line-height: 30px;
+        padding-left: 10px;
+      }
 
-@{
-    ViewBag.Title = "Create a new Location entry";
-    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
-}
+      #right-panel select,
+      #right-panel input {
+        font-size: 15px;
+      }
 
+      #right-panel select {
+        width: 100%;
+      }
 
+      #right-panel i {
+        font-size: 12px;
+      }
 
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
+      #map {
+        height: 100%;
+        float: left;
+        width: 63%;
+        height: 100%;
+      }
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.LocationName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LocationName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LocationName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      #right-panel {
+        float: right;
+        width: 34%;
+        height: 100%;
+      }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      .panel {
+        height: 100%;
+        overflow: auto;
+      }
+    </style>
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: { lat: -24.345, lng: 134.46 },
+        });
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer({
+          draggable: true,
+          map,
+          panel: document.getElementById("right-panel"),
+        });
+        directionsRenderer.addListener("directions_changed", () => {
+          computeTotalDistance(directionsRenderer.getDirections());
+        });
+        displayRoute(
+          "Perth, WA",
+          "Sydney, NSW",
+          directionsService,
+          directionsRenderer
+        );
+      }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      function displayRoute(origin, destination, service, display) {
+        service.route(
+          {
+            origin: origin,
+            destination: destination,
+            waypoints: [
+              { location: "Adelaide, SA" },
+              { location: "Broken Hill, NSW" },
+            ],
+            travelMode: google.maps.TravelMode.DRIVING,
+            avoidTolls: true,
+          },
+          (result, status) => {
+            if (status === "OK" && result) {
+              display.setDirections(result);
+            } else {
+              alert("Could not display directions due to: " + status);
+            }
+          }
+        );
+      }
 
+      function computeTotalDistance(result) {
+        let total = 0;
+        const myroute = result.routes[0];
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.BusinessUnitName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BusinessUnitName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BusinessUnitName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        if (!myroute) {
+          return;
+        }
 
-
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+        for (let i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000;
+        document.getElementById("total").innerHTML = total + " km";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="right-panel">
+      <p>Total Distance: <span id="total"></span></p>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKQFV5gkdCH2cul-N5qrjZ05b0CzqTIMs&callback=initMap&libraries=&v=weekly"
+      async></script>
+  </body>
+</html>

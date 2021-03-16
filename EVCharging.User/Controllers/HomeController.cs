@@ -45,7 +45,7 @@ namespace EVCharging.User.Controllers
 
             if (User != null)
             {
-                if (User.RoleId == "User")
+                if (User.RoleId == "User" || User.RoleId== null)
                 {
 
 
@@ -91,15 +91,23 @@ namespace EVCharging.User.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult register([Bind(Exclude = "IsEmailVerify,ActivationCode,IsEmailverify,resetPasswordCode,ResetCode")] Customer c)
         {
-
-
-
-
             if (ModelState.IsValid == true)
             {
+                
+                   
+                
 
+
+
+
+                var isEmailAlreadyExists = db.Customers.Any(x => x.EmailAddress == c.EmailAddress);
+                if (isEmailAlreadyExists)
+                {
+                    ModelState.AddModelError("EmailAddress", "User with this email already exists");
+                    return View(c);
+                }
+                c.RoleId = "User";
                 db.Customers.Add(c);
-
                 int a = db.SaveChanges();
                 if (a > 0)
                 {
@@ -118,8 +126,6 @@ namespace EVCharging.User.Controllers
             return View();
 
         }
-       
-
 
         public ActionResult Roles()
         {

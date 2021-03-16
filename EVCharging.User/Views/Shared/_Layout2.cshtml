@@ -4,12 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Site.css")
     @Styles.Render("~/Content/css")
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="background-image: url('../../Image/ev1.jpg'); ">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body style="background-image: url('~/Image/back.jfif'); ">
+    <div class=" navbar navbar-inverse navbar-fixed-top  ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,7 +25,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Location", "userLocation", "Display", new { @class = "glyphicon glyphicon-user" })</li>
+                    <li>@Html.ActionLink("Location", "userLocation", "Display")</li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -31,10 +34,10 @@
                         <ul class="dropdown-menu">
 
                             <li>
-                                @Html.ActionLink("UpdateProfile", "UpdateProfile", "Display", new { @class = "glyphicon glyphicon-user" })
+                                @Html.ActionLink("UpdateProfile", "UpdateProfile", "Display")
                             </li>
-                            <li>@Html.ActionLink("ChangePassword", "Index", "Display", new { @class = "glyphicon glyphicon-user" })</li>
-                            <li>@Html.ActionLink("LogOut", "Logout", "Display", new { @class = "glyphicon glyphicon-user" })</li>
+                            <li>@Html.ActionLink("ChangePassword", "Index", "Display")</li>
+                            <li>@Html.ActionLink("LogOut", "Logout", "Display")</li>
 
                         </ul>
                     </li>

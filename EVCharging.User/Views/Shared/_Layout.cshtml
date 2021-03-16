@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Site.css")
 
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />    
 </head>
 <body style="background-image:url('../../Image/EV.jpg');">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top " style="color:white;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,7 +21,7 @@
                 @Html.ActionLink("EVCharging", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav ">
+                <ul class="nav navbar-nav  ">
 
 
                     <li> @Html.ActionLink("AboutUs", "About", "Home")  </li>
@@ -28,12 +29,12 @@
                     <li>@Html.ActionLink("ContactUs", "Contact", "Home")</li>
                     <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right ">
 
 
-                    <li> @Html.ActionLink("SignUp", "Register", "Home", new { @class = "glyphicon glyphicon-user" })</li>
+                    <li> @Html.ActionLink("SignUp", "Register", "Home")</li>
 
-                    <li>@Html.ActionLink("Login", "Login", "Home", new { @class = "glyphicon glyphicon-log-in" })</li>
+                    <li>@Html.ActionLink("Login", "Login", "Home")</li>
                 </ul>
             </div>
         </div>

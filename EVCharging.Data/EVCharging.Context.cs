@@ -39,7 +39,6 @@ namespace EVCharging.Data
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Staticpage> Staticpages { get; set; }
-        public virtual DbSet<status> status { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
     
         public virtual int Delete_BusinessUnit(string businessUnitName, string businessUnitCode, string currencyCode, Nullable<System.DateTime> insertDate, Nullable<System.DateTime> updateDate, Nullable<System.DateTime> deleteDate, Nullable<bool> isDeleted)

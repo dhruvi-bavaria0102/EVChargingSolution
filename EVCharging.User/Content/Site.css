@@ -108,7 +108,7 @@ textarea {
 body {
     width: 100%;
     height: auto;
-    background-image: url('../image/img5.jpg');
+    
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;
@@ -158,4 +158,7 @@ th {
     text-align: center;
     color: black;
     background-color: yellow;
+}
+navbar-brand1{
+    color:white;
 }
