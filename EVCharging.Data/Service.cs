@@ -28,5 +28,5 @@ namespace EVCharging.Data
 public enum ServiceStatus
 {
     Pending,
-    completed
+    Completed
 }

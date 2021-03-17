@@ -52,7 +52,7 @@ namespace EVCharging.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                service.ServiceStatus = "pending";
+                service.ServiceStatus = "Pending";
                 service.InsertDate = DateTime.UtcNow;
                 db.Services.Add(service);
                 try

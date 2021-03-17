@@ -8,11 +8,11 @@
 
 
 <div>
-  
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Connector_Types.ConnectorName)
+            @Html.DisplayName("Connector Name")
         </dt>
 
         <dd>
@@ -20,14 +20,14 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location.LocationName)
+            @Html.DisplayName("Location Name")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Location.LocationName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Charger.ChargerName)
+            @Html.DisplayName("Charger Name")
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
 
 
         <dt>
-            @Html.DisplayNameFor(model => model.ConnectorStatus)
+            @Html.DisplayName("Connector Status")
         </dt>
 
         <dd>
@@ -44,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SMSCode)
+            @Html.DisplayName("SMS Code")
         </dt>
 
         <dd>
@@ -52,25 +52,46 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ConnectorUnId)
+            @Html.DisplayName("Connector UuId")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ConnectorUnId)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Tariff)
+            @Html.DisplayName("Connector Standard")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Tariff)
+            @Html.DisplayFor(model => model.Connector_Types.ConnectorStandard)
+        </dd>
+        <dt>
+            @Html.DisplayName("Connector Power Type")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connector_Types.PowerType)
+        </dd>
+        <dt>
+            @Html.DisplayName("Connector Category")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connector_Types.ConnectorCategory)
         </dd>
 
-       
+        <dt>
+            @Html.DisplayName("Connector Formate")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connector_Types.ConnectorFormate)
+        </dd>
+
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", null, new {id = Model.Id ,@class = "btn btn-danger"}) |
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
 </p>

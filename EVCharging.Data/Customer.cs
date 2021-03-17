@@ -26,54 +26,55 @@ namespace EVCharging.Data
 
         [Required(ErrorMessage = "Enter FirstName!")]
         [StringLength(50)]
-        [Display(Name = "FirstName")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Enter LastName!")]
         [MaxLength(50), MinLength(2)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
 
         public Nullable<int> BusinessUnitID { get; set; }
 
-        [Required(ErrorMessage = "Email require!")]
+        [Required(ErrorMessage = "Email required!")]
 
         [Display(Name = "Email")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" + @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" + @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Invalid Email")]
         public string EmailAddress { get; set; }
-        [Required(ErrorMessage = "streetAddress  require!")]
+        [Required(ErrorMessage = "StreetAddress  required!")]
 
-        [Display(Name = "StreetAddress ")]
+        [Display(Name = "Street Address ")]
         public string streetAddress { get; set; }
-        [Required(ErrorMessage = "PostalCode require!")]
+        [Required(ErrorMessage = "PostalCode required!")]
 
-        [Display(Name = "PostalCode")]
+        [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
-        [Required(ErrorMessage = "City require!")]
+        [Required(ErrorMessage = "City required!")]
 
         [Display(Name = "City")]
         public string City { get; set; }
-        [Required(ErrorMessage = "Country require!")]
+        [Required(ErrorMessage = "Country required!")]
 
         [Display(Name = "Country")]
         public string Country { get; set; }
-        [Required(ErrorMessage = "InvoiceStreetAddress  require!")]
+        [Required(ErrorMessage = "InvoiceStreetAddress  required!")]
 
-        [Display(Name = "InvoiceStreetAddress ")]
+        [Display(Name = "Invoice Street Address ")]
         public string InvoiceStreetAddress { get; set; }
-        [Required(ErrorMessage = "InvoicePostalCode require!")]
+        [Required(ErrorMessage = "InvoicePostalCode required!")]
 
-        [Display(Name = "InvoicePostalCode")]
+        [Display(Name = "Invoice Postal Code")]
         public string InvoicePostalCode { get; set; }
-        [Required(ErrorMessage = "InvoiceCity require!")]
+        [Required(ErrorMessage = "InvoiceCity required!")]
 
-        [Display(Name = "InvoiceCity")]
+        [Display(Name = "Invoice City")]
         public string InvoiceCity { get; set; }
-        [Required(ErrorMessage = "InvoiceCountry require!")]
+        [Required(ErrorMessage = "InvoiceCountry required!")]
 
-        [Display(Name = "InvoiceCountry ")]
+        [Display(Name = "Invoice Country ")]
         public string InvoiceCountry { get; set; }
-        [Required(ErrorMessage = "Site  require!")]
+        [Required(ErrorMessage = "Site  required!")]
 
         [Display(Name = "Site ")]
         public string Site { get; set; }
@@ -111,7 +112,7 @@ namespace EVCharging.Data
 
 
         [Required(ErrorMessage = "Enter RePassword!")]
-        [Display(Name = "Re-Password")]
+        [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password is not identical")]
         public string ConfirmPassword { get; set; }

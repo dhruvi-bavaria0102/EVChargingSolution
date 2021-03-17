@@ -6,9 +6,11 @@
 }
 
 
-@Html.Raw(TempData["Login"])
 
-@Html.Raw(ViewBag.ErrorMeassage)
+
+@Html.Raw(TempData["register"])
+
+
 
 
 
@@ -20,6 +22,8 @@
 
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div></div>
+        <h1 style="color:black;text-align:center;font-size:34px">ELECTRIC VEHICLE CHARGING</h1>
         <div class="login-page">
             <div class="form " style="max-width:350px">
                 <div class="login">

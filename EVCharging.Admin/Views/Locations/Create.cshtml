@@ -1,25 +1,118 @@
-﻿<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCKQFV5gkdCH2cul-N5qrjZ05b0CzqTIMs&callback=initialize&libraries=places" type="text/javascript"></script>
+﻿@model EVCharging.Data.Location
 
-<script type="text/javascript">
-    function initialize() {
+@{
+    ViewBag.Title = "Create a new Location Entry";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<style>
+
+
+
+    #myMap {
+        height: 300px;
+        width: 600px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocationName, "Location Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LocationName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LocationName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="myMap"></div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!-- <input type="text" id="latitude" />-->
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control", id = "latitude" } })
+                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!-- <input type="text" id="longitude" />-->
+                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control", id = "longitude" } })
+                @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BusinessUnitName, "Business Unit Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BusinessUnitName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BusinessUnitName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+                @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnUUd8xHf898NuokE__eCvQRbImd-YvOk&libraries=places"></script>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
         var latlng = new google.maps.LatLng(51.4975941, -0.0803232);
-        var map = new google.maps.Map(document.getElementById('map'), {
-        center: latlng,
-        zoom: 11,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-});
-var marker = new google.maps.Marker({
-    position: latlng,
-    map: map,
-    title: 'Set lat/lon values for this property',
-    draggable: true
-});
+        var map = new google.maps.Map(document.getElementById('myMap'), {
+            center: latlng,
+            zoom: 11,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: 'Set lat/lon values for this property',
+            draggable: true
+        });
 
-google.maps.event.addListener(marker, 'dragend', function (event) {
-    document.getElementById("latbox").value = this.getPosition().lat();
-    document.getElementById("lngbox").value = this.getPosition().lng();
-});
-</script>
-
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById("latitude").value = this.getPosition().lat();
+            document.getElementById("longitude").value = this.getPosition().lng();
+        });
 
 
+    </script>
+
+}

@@ -33,6 +33,7 @@ namespace EVCharging.User.Controllers
 
             public ActionResult Login()
             {
+             
                 return View();
 
             }
@@ -41,17 +42,21 @@ namespace EVCharging.User.Controllers
         [HttpPost]
         public ActionResult Login(Data.Customer s)
         {
-            var User = db.Customers.Where(model => model.EmailAddress == s.EmailAddress && model.Password == s.Password).FirstOrDefault();
-
+            var User = db.Customers.Where(model => model.EmailAddress == s.EmailAddress && model.Password == s.Password ).FirstOrDefault();
+        
             if (User != null)
             {
                 if (User.RoleId == "User" || User.RoleId== null)
                 {
 
 
-                    //Session["UserId"] = s.ID.ToString();
-                    //Session["ID"] = int.Parse(Session["UserId"].ToString());
+                    
                     Session["UserEmail"] = s.EmailAddress.ToString();
+                 
+
+
+
+
 
 
 
@@ -93,9 +98,9 @@ namespace EVCharging.User.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                
-                   
-                
+
+
+
 
 
 
@@ -106,22 +111,27 @@ namespace EVCharging.User.Controllers
                     ModelState.AddModelError("EmailAddress", "User with this email already exists");
                     return View(c);
                 }
-                c.RoleId = "User";
-                db.Customers.Add(c);
-                int a = db.SaveChanges();
-                if (a > 0)
-                {
-                    ViewBag.InsertMeassage = "<script>alert('register succefully !!')</script>";
-                    ModelState.Clear();
-
-                    return RedirectToAction("Login");
-                }
                 else
                 {
+                    c.RoleId = "User";
+                    db.Customers.Add(c);
+                    int a = db.SaveChanges();
+                    if (a > 0)
+                    {
 
-                    ViewBag.InsertMeassage = "<script>alert('not register succefully !!')</script>";
+                        TempData["register"] = "<script>alert('register succefully !!')</script>";
+                        ModelState.Clear();
+
+                        return RedirectToAction("Login");
+                    }
+
+                    else
+                    {
+
+                        TempData["Noregister"] = "<script>alert('not register succefully !!')</script>";
+                    }
+
                 }
-
             }
             return View();
 

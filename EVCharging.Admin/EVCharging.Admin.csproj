@@ -734,7 +734,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Locations\Create.cshtml" />
     <Content Include="Views\Locations\Delete.cshtml" />
-    <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="Views\Connectors\Create.cshtml" />
@@ -744,7 +743,6 @@
     <Content Include="Views\Connectors\Index.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
@@ -760,14 +758,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Chargers\Create.cshtml" />
     <Content Include="Views\Chargers\Delete.cshtml" />
-    <Content Include="Views\Chargers\Details.cshtml" />
     <Content Include="Views\Chargers\Edit.cshtml" />
     <Content Include="Views\Chargers\Index.cshtml" />
     <Content Include="Views\Staticpages\Create.cshtml" />
     <Content Include="Views\Staticpages\Index.cshtml" />
     <Content Include="Views\Services\Create.cshtml" />
     <Content Include="Views\Services\Delete.cshtml" />
-    <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Staticpages\Edit.cshtml" />
     <Content Include="Views\Staticpages\Delete.cshtml" />

@@ -13,20 +13,20 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceName)
+            @Html.DisplayName("Service Name")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ServiceName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.ServiceDescription)
+            @Html.DisplayName("Service Description")
         </dt>
         <dd>
             @Html.DisplayFor(model => model.ServiceDescription)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Accepted)
+            @Html.DisplayName("Accepted")
         </dt>
 
         <dd>
@@ -41,9 +41,9 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-success" /> |
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+</div>
     }
 </div>

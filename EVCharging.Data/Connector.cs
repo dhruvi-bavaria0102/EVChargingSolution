@@ -32,3 +32,8 @@ namespace EVCharging.Data
         public virtual Location Location { get; set; }
     }
 }
+public enum ConnectorStatus
+{
+    Active,
+    NotActive
+}

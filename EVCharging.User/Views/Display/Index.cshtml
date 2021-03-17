@@ -8,7 +8,7 @@
 <div style="width:auto;float:right">
     @if (@Session["UserEmail"] != null)
     {
-        <span>Welcome : </span> @Session["UserEmail"] <span> | </span> @Html.ActionLink("Log Out", "Logout", "Display")
+        <span>Welcome : </span> @Session["UserEmail"] <span> | </span> 
     }
     else
     {
@@ -23,7 +23,7 @@
     {
         @Html.AntiForgeryToken()
         <div class="login-page">
-            <div class="form1" style="max-width:400px; color:white">
+            <div class="form1" style="max-width:400px; color:white;text-align:left">
                 <div class="login">
                     <div class="login-header">
                         <h3 style="text-align:center;color:white;">CHANGE PASSWORD</h3>
@@ -33,28 +33,32 @@
                 </div>
                 <hr />
 
-                <div class="form-group">
-                    @Html.Label("Old Password", new { htmlAttributes = new { @class = "form-control" }, @for = "Password" })
-                    @Html.Password("Password")
+                <div class="form-group ">
+                    @Html.Label("Old Password", new { htmlAttributes = new { @class = "control-label" }, @for = "Password" })
+                    <div>
+                        <input type="password" id="password" name="password" size="50" width="10" style="color:black" >
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
 
+                    @Html.Label("New Password", new { htmlAttributes = new { @class = "control-label" }, @for = "newPassword" })
+                    <div>
+                        <input type="password" id="newPassword" name="newPassword" size="50" style="color:black">
+                       
+                    </div>
                 </div>
                 <div class="form-group">
-
-                    @Html.Label("New Password", new { htmlAttributes = new { @class = "form-control" }, @for = "newPassword" })
-                    @Html.Password("newPassword")
-
-                </div>
-                <div class="form-group">
-                    @Html.Label("Re-Password", new { htmlAttributes = new { @class = "form-control" }, @for = "Confirmpwd" })
-                    @Html.Password("ConfirmPassword")
-
+                    @Html.Label("Re-Password", new { htmlAttributes = new { @class = "control-label" }, @for = "Confirmpwd" })
+                    <div>
+                        <input type="password" id="ConfirmPassword" name="ConfirmPassword" size="50" style="color:black" >
+                       
+                    </div>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Change Password" class="registerbtn " />
                 </div>
             </div>
         </div>
-
 
 
     }

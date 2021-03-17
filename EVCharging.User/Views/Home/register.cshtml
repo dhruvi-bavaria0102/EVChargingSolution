@@ -6,7 +6,7 @@
 }
 
 
-@Html.Raw(ViewBag.InsertMeassage)
+@Html.Raw(TempData["Noregister"])
 
 
 
@@ -19,7 +19,7 @@
         <div class="login-page">
 
             <div class="form" style="max-width:450px; margin-bottom:10px; color:ghostwhite">
-                <div class="login"  >
+                <div class="login">
                     <div class="login-header">
                         <h3 style="text-align:center;">REGISTER</h3>
 
@@ -58,12 +58,12 @@
                     </div>
 
                     @Html.LabelFor(model => model.streetAddress, htmlAttributes: new { @class = "control-label " })
-                    <div class="col-md-16">
+                <div class="col-md-16">
 
-                        @Html.TextAreaFor(model => model.streetAddress, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.streetAddress, "", new { @class = "text-danger" })
+                    @Html.TextAreaFor(model => model.streetAddress, 2, 5, htmlAttributes: new { style = "width:76%; max-width:76%; color:black" })
+                    @Html.ValidationMessageFor(model => model.streetAddress, "", new { @class = "text-danger" })
 
-                    </div>
+                </div>
 
                     @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label " })
                     <div class="col-md-16">
@@ -89,12 +89,12 @@
                     </div>
 
                     @Html.LabelFor(model => model.InvoiceStreetAddress, htmlAttributes: new { @class = "control-label " })
-                    <div class="col-md-16">
+                <div class="col-md-16">
+                    @Html.TextAreaFor(model => model.InvoiceStreetAddress, 2, 5, htmlAttributes: new { style = "width:76%; max-width:76%; color:black" })
 
-                        @Html.TextAreaFor(model => model.InvoiceStreetAddress, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.InvoiceStreetAddress, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.InvoiceStreetAddress, "", new { @class = "text-danger" })
 
-                    </div>
+                </div>
 
                     @Html.LabelFor(model => model.InvoicePostalCode, htmlAttributes: new { @class = "control-label" })
                     <div class="col-md-16">
@@ -148,7 +148,7 @@
 
                     </div>
 
-                    
+
 
 
                     @* <div class="form-group">
@@ -186,10 +186,10 @@
                         </div>*@
 
                     <div class="form-group">
-                        <input type="submit" value="SignUp" formaction="register" formmethod="post" class="registerbtn " style="margin-left:10px" />
+                        <input type="submit" value="SignUp" formaction="register" formmethod="post" class="registerbtn " style="margin-left:10px;margin-top:15px" />
 
 
-                        <div style="margin-left:20px">
+                        <div style="margin-left: 20px;margin-top:10px">
                             Already have an account?@Html.ActionLink("Sign in", "Login", "Home")
                         </div>
 

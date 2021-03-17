@@ -34,3 +34,8 @@ namespace EVCharging.Data
         public virtual ICollection<Connector> Connectors { get; set; }
     }
 }
+public enum Availability
+{
+    Yes,
+    No
+}

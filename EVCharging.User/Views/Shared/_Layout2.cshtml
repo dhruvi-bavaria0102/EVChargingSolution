@@ -30,14 +30,14 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" style = "color: white">Update Profile <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" style="color: white">@Session["FNAme"] <b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
                             <li style="color:yellow;">
                                 @Html.ActionLink("UpdateProfile", "UpdateProfile", "Display")
                             </li>
                             <li>@Html.ActionLink("ChangePassword", "Index", "Display")</li>
-                            <li>@Html.ActionLink("LogOut", "Logout", "Display")</li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Display")</li>
 
                         </ul>
                     </li>

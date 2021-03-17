@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.StaticPageName)
+            @Html.DisplayName("Static Page Name")
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StaticPageContent)
+            @Html.DisplayName("Static Page Content")
         </dt>
 
         <dd>
@@ -33,9 +33,9 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-success" /> |
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+</div>
     }
 </div>

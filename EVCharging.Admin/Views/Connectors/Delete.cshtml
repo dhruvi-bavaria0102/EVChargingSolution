@@ -9,11 +9,11 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Connector_Types.ConnectorName)
+            @Html.DisplayName("Connector Name")
         </dt>
 
         <dd>
@@ -21,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location.LocationName)
+            @Html.DisplayName("Location Name")
         </dt>
 
         <dd>
@@ -29,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Charger.ChargerName)
+            @Html.DisplayName("Charger Name")
         </dt>
 
         <dd>
@@ -37,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ConnectorStatus)
+            @Html.DisplayName("Connector Status")
         </dt>
 
         <dd>
@@ -45,7 +45,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SMSCode)
+            @Html.DisplayName("SMS Code")
         </dt>
 
         <dd>
@@ -53,20 +53,14 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ConnectorUnId)
+            @Html.DisplayName("Connector UuId")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.ConnectorUnId)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tariff)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tariff)
-        </dd>
 
 
 
@@ -74,12 +68,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-success" /> |
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+</div>
     }
 </div>
