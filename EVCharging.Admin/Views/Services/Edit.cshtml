@@ -43,11 +43,11 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.ServiceStatus, "ServiceStatus", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ServiceStatus, "Service Status", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.ServiceStatus,
                            new SelectList(Enum.GetValues(typeof(ServiceStatus))),
-                           "SelectServiceStatus", new { @class = "form-control" })
+                                new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ServiceStatus, "", new { @class = "text-danger" })
 
 

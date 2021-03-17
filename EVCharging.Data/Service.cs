@@ -25,3 +25,8 @@ namespace EVCharging.Data
         public Nullable<bool> isDeleted { get; set; }
     }
 }
+public enum ServiceStatus
+{
+    Pending,
+    Completed
+}
