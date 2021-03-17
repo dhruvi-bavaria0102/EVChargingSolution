@@ -63,16 +63,6 @@
           <Property Name="DeleteDate" Type="datetime" />
           <Property Name="isDeleted" Type="bit" />
         </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="ContactID" />
-          </Key>
-          <Property Name="ContactID" Type="int" Nullable="false" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar" MaxLength="250" />
-          <Property Name="SupportMail" Type="nvarchar" MaxLength="250" />
-          <Property Name="MarketingMail" Type="nvarchar" MaxLength="100" />
-        </EntityType>
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="ID" />
@@ -629,7 +619,6 @@
           <EntitySet Name="Chargers" EntityType="Self.Chargers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Connector Types" EntityType="Self.Connector Types" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Connectors" EntityType="Self.Connectors" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhoneNumbers" EntityType="Self.PhoneNumbers" Schema="dbo" store:Type="Tables" />
@@ -739,16 +728,6 @@
           <NavigationProperty Name="Charger" Relationship="Self.FK__Connector__Charg__36B12243" FromRole="Connectors" ToRole="Chargers" />
           <NavigationProperty Name="Connector_Types" Relationship="Self.FK__Connector__Conne__37A5467C" FromRole="Connectors" ToRole="Connector_Types" />
           <NavigationProperty Name="Location" Relationship="Self.FK__Connector__Locat__38996AB5" FromRole="Connectors" ToRole="Locations" />
-        </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="ContactID" />
-          </Key>
-          <Property Name="ContactID" Type="Int32" Nullable="false" />
-          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SupportMail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="MarketingMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -978,7 +957,6 @@
           <EntitySet Name="Chargers" EntityType="Self.Charger" />
           <EntitySet Name="Connector_Types" EntityType="Self.Connector_Type" />
           <EntitySet Name="Connectors" EntityType="Self.Connector" />
-          <EntitySet Name="Contacts" EntityType="Self.Contact" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Locations" EntityType="Self.Location" />
           <EntitySet Name="PhoneNumbers" EntityType="Self.PhoneNumber" />
@@ -1546,17 +1524,6 @@
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="EVModelModel.Contact">
-              <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="SupportMail" ColumnName="SupportMail" />
-                <ScalarProperty Name="MarketingMail" ColumnName="MarketingMail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

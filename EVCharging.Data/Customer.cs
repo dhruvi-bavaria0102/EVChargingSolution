@@ -11,8 +11,7 @@ namespace EVCharging.Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +20,9 @@ namespace EVCharging.Data
             this.PhoneNumbers = new HashSet<PhoneNumber>();
             this.Vehicles = new HashSet<Vehicle>();
         }
-        [Key]
+    
         public int ID { get; set; }
+<<<<<<< HEAD
 
         [Required(ErrorMessage = "Enter FirstName!")]
         [StringLength(50)]
@@ -32,10 +32,12 @@ namespace EVCharging.Data
         [Required(ErrorMessage = "Enter LastName!")]
         [MaxLength(50), MinLength(2)]
         [Display(Name = "Last Name")]
+=======
+        public string FirstName { get; set; }
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         public string LastName { get; set; }
-
-
         public Nullable<int> BusinessUnitID { get; set; }
+<<<<<<< HEAD
 
         [Required(ErrorMessage = "Email required!")]
 
@@ -77,38 +79,35 @@ namespace EVCharging.Data
         [Required(ErrorMessage = "Site  required!")]
 
         [Display(Name = "Site ")]
+=======
+        public string EmailAddress { get; set; }
+        public string streetAddress { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string InvoiceStreetAddress { get; set; }
+        public string InvoicePostalCode { get; set; }
+        public string InvoiceCity { get; set; }
+        public string InvoiceCountry { get; set; }
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         public string Site { get; set; }
-
-        [Required(ErrorMessage = "Enter Phone no!")]
-        [Display(Name = "Phone no.")]
-        [DataType(DataType.PhoneNumber)]
-        [StringLength(13, MinimumLength = 10)]
-        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Not a valid Phone number")]
         public string Telephone { get; set; }
-
-
-        [Display(Name = "Role")]
         public string RoleId { get; set; }
         public Nullable<System.DateTime> InsertDate { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public Nullable<System.DateTime> DeleteDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        [Required(ErrorMessage = "Enter Password!")]
-        [Display(Name = "Password")]
-        [DataType(DataType.Password)]
-        [RegularExpression("([a-z]|[A-Z]|[0-9]|[\\W]){4}[a-zA-Z0-9\\W]{3,11}$", ErrorMessage = "Enter AtLest 8 Charater , one Special Symbol  and one UpperCase Letter")]
-
-
         public string Password { get; set; }
         public string resetPasswordCode { get; set; }
         public Nullable<bool> IsEmailverify { get; set; }
-        public Nullable<System.Guid> ActivationCode { get; set; }
-
+        public string ConfirmPassword { get; set; }
+    
         public virtual BusinessUnit BusinessUnit { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehicle> Vehicles { get; set; }
+<<<<<<< HEAD
 
 
         [Required(ErrorMessage = "Enter RePassword!")]
@@ -116,11 +115,7 @@ namespace EVCharging.Data
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password is not identical")]
         public string ConfirmPassword { get; set; }
+=======
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
     }
-}
-
-public enum RoleId
-{
-    Admin,
-    User
 }

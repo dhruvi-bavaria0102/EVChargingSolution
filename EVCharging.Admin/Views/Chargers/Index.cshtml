@@ -11,11 +11,19 @@
 </p>
 <table class="table">
     <tr>
+<<<<<<< HEAD
         <th>
             @Html.DisplayName("Charger Name")
         </th>
         <th>
             @Html.DisplayName("Location Name")
+=======
+        <th>         
+            @Html.DisplayName("Charger Name")
+        </th>
+        <th>
+          @Html.DisplayName("Location Name")
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Availability)
@@ -25,6 +33,7 @@
         <th></th>
     </tr>
 
+<<<<<<< HEAD
     @foreach (var item in Model)
     {
         <tr>
@@ -44,5 +53,25 @@
             </td>
         </tr>
     }
+=======
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ChargerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location.LocationName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Availability)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+       
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
 
 </table>

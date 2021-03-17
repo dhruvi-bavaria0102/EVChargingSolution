@@ -18,7 +18,11 @@
         @Html.HiddenFor(model => model.ServiceID)
 
         <div class="form-group">
+<<<<<<< HEAD
             @Html.LabelFor(model => model.ServiceName, "Service Name", htmlAttributes: new { @class = "control-label col-md-2" })
+=======
+            @Html.LabelFor(model => model.ServiceName,"Service Name", htmlAttributes: new { @class = "control-label col-md-2" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ServiceName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ServiceName, "", new { @class = "text-danger" })
@@ -27,7 +31,11 @@
 
 
         <div class="form-group">
+<<<<<<< HEAD
             @Html.LabelFor(model => model.ServiceDescription, "Service Description", htmlAttributes: new { @class = "control-label col-md-2" })
+=======
+            @Html.LabelFor(model => model.ServiceDescription,"Service Description", htmlAttributes: new { @class = "control-label col-md-2" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ServiceDescription, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ServiceDescription, "", new { @class = "text-danger" })

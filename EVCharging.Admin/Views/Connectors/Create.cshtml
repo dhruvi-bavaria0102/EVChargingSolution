@@ -11,6 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+<<<<<<< HEAD
 
     <div class="form-horizontal">
 
@@ -22,24 +23,62 @@
                 @Html.DropDownList("ChargerId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ChargerId, "", new { @class = "text-danger" })
             </div>
+=======
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ChargerId, "Charger Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ChargerId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ChargerId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LocationId, "Location Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("LocationId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             @Html.LabelFor(model => model.LocationId, "Location Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("LocationId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.LocationId, "", new { @class = "text-danger" })
             </div>
+=======
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConnectorTypeId, "Connector Type Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ConnectorTypeId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ConnectorTypeId, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             @Html.LabelFor(model => model.ConnectorTypeId, "Connector Type Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ConnectorTypeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ConnectorTypeId, "", new { @class = "text-danger" })
             </div>
+=======
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConnectorUnId, "Connector UuId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ConnectorUnId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ConnectorUnId, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
 
+<<<<<<< HEAD
 
         <div class="form-group">
             @Html.LabelFor(model => model.ConnectorUnId, "Connector UuId", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -47,8 +86,16 @@
                 @Html.EditorFor(model => model.ConnectorUnId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ConnectorUnId, "", new { @class = "text-danger" })
             </div>
+=======
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConnectorStatus,"Connector Status", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ConnectorStatus, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ConnectorStatus, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             @Html.LabelFor(model => model.ConnectorStatus, "Connector Status", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -59,8 +106,16 @@
 
 
             </div>
+=======
+    <div class="form-group">
+        @Html.LabelFor(model => model.SMSCode,"SMS Code", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SMSCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SMSCode, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             @Html.LabelFor(model => model.SMSCode, "SMS Code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -78,6 +133,20 @@
                 <input type="submit" value="Create" class="btn btn-success" />
                 @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
             </div>
+=======
+  
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
     </div>
 }

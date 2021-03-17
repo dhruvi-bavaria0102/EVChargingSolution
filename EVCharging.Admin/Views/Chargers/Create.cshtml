@@ -11,6 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+<<<<<<< HEAD
 
     <div class="form-horizontal">
 
@@ -24,14 +25,36 @@
                 @Html.EditorFor(model => model.ChargerName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ChargerName, "", new { @class = "text-danger" })
             </div>
+=======
+    
+<div class="form-horizontal">
+ 
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ChargerName,"Charger Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ChargerName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ChargerName, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
 
+<<<<<<< HEAD
         <div class="form-group">
             @Html.LabelFor(model => model.LocationID, "Location Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("LocationID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.LocationID, "", new { @class = "text-danger" })
             </div>
+=======
+    <div class="form-group">
+        @Html.LabelFor(model => model.LocationID, "Location Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("LocationID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LocationID, "", new { @class = "text-danger" })
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Availability, "Availability", htmlAttributes: new { @class = "control-label col-md-2" })

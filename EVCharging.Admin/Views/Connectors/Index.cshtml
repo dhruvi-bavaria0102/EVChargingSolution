@@ -12,6 +12,7 @@
 <table class="table">
     <tr>
         <th>
+<<<<<<< HEAD
             @Html.DisplayName("Connector UuId")
         </th>
         <th>
@@ -32,6 +33,27 @@
 
 
 
+=======
+            @Html.DisplayName("Connector Name")
+        </th>
+        <th>
+            @Html.DisplayName("Location Name")
+        </th>
+        <th>
+            @Html.DisplayName("Charger Name")
+        </th>
+        <th>
+            @Html.DisplayName("Connector Status")
+        </th>
+        <th>
+            @Html.DisplayName("SMS Code")
+        </th>
+        <th>
+            @Html.DisplayName("Connector UuId")
+        </th>
+       
+   
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         <th></th>
     </tr>
 
@@ -56,14 +78,25 @@
     <td>
         @Html.DisplayFor(modelItem => item.SMSCode)
     </td>
+<<<<<<< HEAD
 
 
+=======
+    <td>
+        @Html.DisplayFor(modelItem => item.ConnectorUnId)
+    </td>
+  
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
 
 
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+<<<<<<< HEAD
         @Html.ActionLink("Details", "Details", new { id = item.Id }) |
 
+=======
+       
+>>>>>>> 8bb43e7c562d901dad9a6fcb294a4442457e1bc5
         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
     </td>
 </tr>

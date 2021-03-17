@@ -31,7 +31,6 @@ namespace EVCharging.Data
         public virtual DbSet<Charger> Chargers { get; set; }
         public virtual DbSet<Connector_Type> Connector_Types { get; set; }
         public virtual DbSet<Connector> Connectors { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<PhoneNumber> PhoneNumbers { get; set; }
